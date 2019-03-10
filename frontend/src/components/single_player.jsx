@@ -29,7 +29,7 @@ export default class SinglePlayer extends Component {
 
 
   preload() {
-    this.load.image('ball', 'ball.jpg');
+    this.load.image('ball', 'small.ico');
   }
 
   create() {
