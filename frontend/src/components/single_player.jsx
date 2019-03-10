@@ -26,6 +26,8 @@ export default class SinglePlayer extends Component {
     // }
     this.cursors = this.game.input.keyboard.createCursorKeys();
     this.ship = this.game.add.sprite(32, this.game.world.height - 150, 'car');
+    console.log(this.ship)
+    this.ship.mass = 100;
     this.game.physics.p2.enable(this.ship);
   }
   update() {
@@ -37,8 +39,23 @@ export default class SinglePlayer extends Component {
     if (cursors.left.isDown) { ship.body.rotateLeft(100); }   //ship movement
     else if (cursors.right.isDown) { ship.body.rotateRight(100); }
     else { ship.body.setZeroRotation(); }
-    if (cursors.up.isDown) { ship.body.thrust(10000); }
-    else if (cursors.down.isDown) { ship.body.reverse(5000); }
+
+    if (cursors.up.isDown) { ship.body.thrust(1000); }
+    else {
+      //ship.body.setZeroForce();
+      console.log(ship.body.velocity);
+      
+      if(ship.body.velocity.x > 0 || ship.body.velocity.y > 0){
+        ship.body.velocity.x = ship.body.velocity.x / 1.05;
+        ship.body.velocity.y = ship.body.velocity.y / 1.05;
+      } else{
+      }
+      // console.log(this.ship.body.force);
+      // if(this.ship.body.velocity > 100){
+      //   ship.body.moveForward(this.ship.body.velocity - 10);
+      // }
+      //ship.body.velocity = ship.body.velocity - 1000;
+    }
   }
 
 
