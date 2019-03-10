@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import Phaser from 'phaser-ce';
+import Phaser, { TileSprite } from 'phaser-ce';
 
 export default class SinglePlayer extends Component {
   componentDidMount() {
 
-    this.game = new Phaser.Game(400,400, Phaser.CANVAS, 'phaser-container', {
+    this.game = new Phaser.Game(800,700, Phaser.CANVAS, 'phaser-container', {
       preload: this.preload,
       create: this.create,
       update: this.update
@@ -13,45 +13,32 @@ export default class SinglePlayer extends Component {
   }
 
   preload() {
-    this.game.load.image('atari', 'game/atari130xe.png');
+    this.game.load.image('car', 'game/car.png');
     this.game.load.image('sky', 'game/sunset.png');
   }
 
   create() {
-
-    this.game.add.image(0,0, 'sky');
     this.game.physics.startSystem(Phaser.Physics.P2JS);
-
-    //  Make things a bit more bouncey
-    this.game.physics.p2.defaultRestitution = 0.8;
-
-    //  Add a sprite
-    this.sprite = this.game.add.sprite(200, 200, 'atari');
-    this.game.physics.enable(this.sprite, Phaser.Physics.P2JS)
-
-    console.log(this.sprite);
-    this.sprite.body.setZeroDamping();
-    this.sprite.body.fixedRotation = true;
+    // bullets = game.add.group();
+    // for (var i = 0; i < 10; i++) {
+    //   var bullet = bullets.create(game.rnd.integerInRange(200, 1700), game.rnd.integerInRange(-200, 400), 'tinycar');
+    //   game.physics.p2.enable(bullet, false);
+    // }
     this.cursors = this.game.input.keyboard.createCursorKeys();
-
-
+    this.ship = this.game.add.sprite(32, this.game.world.height - 150, 'car');
+    this.game.physics.p2.enable(this.ship);
   }
   update() {
-    this.sprite.body.setZeroVelocity();
+    // bullets.forEachAlive(moveBullets, this);  //make bullets accelerate to ship
 
-    if (this.cursors.left.isDown) {
-      this.sprite.body.moveLeft(400);
-    }
-    else if (this.cursors.right.isDown) {
-      this.sprite.body.moveRight(400);
-    }
+    let ship = this.ship;
+    let cursors = this.cursors;
 
-    if (this.cursors.up.isDown) {
-      this.sprite.body.moveUp(400);
-    }
-    else if (this.cursors.down.isDown) {
-      this.sprite.body.moveDown(400);
-    }
+    if (cursors.left.isDown) { ship.body.rotateLeft(100); }   //ship movement
+    else if (cursors.right.isDown) { ship.body.rotateRight(100); }
+    else { ship.body.setZeroRotation(); }
+    if (cursors.up.isDown) { ship.body.thrust(10000); }
+    else if (cursors.down.isDown) { ship.body.reverse(5000); }
   }
 
 
