@@ -18,7 +18,7 @@ class SignupForm extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.signedIn === true) {
-      this.props.history.push('/login');
+      this.props.history.push('/rooms');
     }
 
     this.setState({errors: nextProps.errors})
@@ -39,7 +39,8 @@ class SignupForm extends React.Component {
       password2: this.state.password2
     };
 
-    this.props.signup(user, this.props.history); 
+    this.props.signup(user)
+    .then(this.props.closeModal); 
   }
 
   renderErrors() {
@@ -69,7 +70,7 @@ class SignupForm extends React.Component {
               <input type="text"
                 value={this.state.handle}
                 onChange={this.update('handle')}
-                placeholder="Handle"
+                placeholder="Username"
               />
             <br/>
               <input type="password"
@@ -84,7 +85,9 @@ class SignupForm extends React.Component {
                 placeholder="Confirm Password"
               />
             <br/>
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Sign up" />
+            <br />
+            {this.props.loginForm}
             {this.renderErrors()}
           </div>
         </form>
