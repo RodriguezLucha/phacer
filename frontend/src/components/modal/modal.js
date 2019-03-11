@@ -23,7 +23,6 @@ function Modal({ modal, closeModal }) {
     }
 
     
-    
 
     return (
       // <div className="modal-background" onClick={closeModal}>
