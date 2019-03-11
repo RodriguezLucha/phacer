@@ -97,7 +97,7 @@ class SignupForm extends React.Component {
                 <div className="login-signup-button-title">
                   Already have an account ?
                 </div>
-                <div>
+                <div >
 
                   {this.props.loginForm}
                 </div>

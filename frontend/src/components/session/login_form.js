@@ -84,7 +84,7 @@ class LoginForm extends React.Component {
             </div>
             
           </div>
-          <div>
+          <div className="login-all-input-group">
             <br />
             <div>
 
