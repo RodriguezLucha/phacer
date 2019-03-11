@@ -125,7 +125,6 @@ input[type="button" i], button{
    right: 0;
    left: 6%;
    transform:scale(0);
-   /* background: rgba(15, 3, 3, 0.5); */
    background-repeat: no-repeat;
    background-size: cover;
    background-position-x: 150px;
@@ -205,8 +204,6 @@ input[type="button" i], button{
     transform:scaleY(.005) scaleX(0);
   }
 }
-         /* transform:scale(1);
-       animation:unfoldOut 1s .3s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards; */
 
 
 
@@ -222,9 +219,14 @@ input[type="button" i], button{
    
    top: 10px;
    cursor: pointer;
-   color: white;
+   color: rgb(235, 233, 233);
    font-size: 30px;
    font-family: 'Open Sans', sans-serif;
+    text-shadow: 
+      1px -1px 0 #080707, 
+      -1px 2px 1px #737272, 
+      -2px 4px 1px #a39f9f;
+   
 
  }
 
