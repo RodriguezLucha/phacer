@@ -11,3 +11,7 @@ export const getUserRooms = id => {
 export const writeRoom = data => {
   return axios.post('/api/rooms/', data)
 }
+
+export const deleteUserRooms = id => {
+  return  axios.delete(`/api/rooms/user/${id}`)
+};
