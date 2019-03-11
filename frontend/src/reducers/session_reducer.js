@@ -13,6 +13,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         isAuthenticated: !!action.currentUser,
+        // isAuthenticated: true,
         user: action.currentUser
       };
     case RECEIVE_USER_LOGOUT:
@@ -23,6 +24,7 @@ export default function(state = initialState, action) {
     case RECEIVE_USER_SIGN_IN:
       return {
         ...state,
+        isAuthenticated: true,
         isSignedIn: true
       }
     default:

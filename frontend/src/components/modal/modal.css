@@ -1,0 +1,160 @@
+
+.login-form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 300px;
+    width: 300px;
+    /* background-image: url('back1.jpg'); */
+}
+
+.signup-form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 460px;
+    width: 300px;
+}
+
+.loing-form-submit-group{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+}
+
+.signup-form-submit-group{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    border-top: 2px solid paleturquoise;
+    padding: 15px;
+}
+
+.signup-input{
+    width: 90%;
+    padding: 15px;
+    border: 1px solid black;
+}
+
+.login-input{
+    width: 90%;
+    padding: 15px;
+    border: 1px solid black;
+}
+
+.login-signup-button-title{
+    color: red;
+    font-size: 20px;
+    font-weight: 400;
+    margin-right: 5px;
+    text-shadow: ;
+}
+
+.login-signup-group{
+    display: flex;
+    justify-content: center;
+    border-top:2px solid paleturquoise;
+    padding-top: 10px;
+}
+
+.modal-background {
+   position: fixed;
+   top: 15%;
+   bottom: 0;
+   right: 0;
+   left: 15%;
+   transform:scale(0);
+   /* background: rgba(15, 3, 3, 0.5); */
+   background-repeat: no-repeat;
+   background-size: cover;
+   opacity: 1;
+   z-index: 5;
+   background-image: url('car.jpg'); 
+   width: 70%;
+   height: 70%;
+   
+   transform:scaleY(.01) scaleX(0);
+   animation:unfoldIn 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+   
+}
+
+
+.test{
+    position: fixed;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   left: 0;
+   transform:scale(0);
+   background: rgba(0, 0, 0, 0.5);
+   z-index: 5;
+    transform:scale(1);
+    animation:unfoldOut 1s .3s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+
+}
+
+.signup-botton{
+    align-self: center;
+}
+  
+.signup-form{
+    display:flex;
+    flex-direction: column;
+}
+
+
+@keyframes unfoldIn {
+  0% {
+    transform:scaleY(.005) scaleX(0);
+  }
+  50% {
+    transform:scaleY(.005) scaleX(1);
+  }
+  100% {
+    transform:scaleY(1) scaleX(1);
+  }
+}
+
+@keyframes unfoldOut {
+  0% {
+    transform:scaleY(1) scaleX(1);
+  }
+  50% {
+    transform:scaleY(.005) scaleX(1);
+  }
+  100% {
+    transform:scaleY(.005) scaleX(0);
+  }
+}
+         /* transform:scale(1);
+       animation:unfoldOut 1s .3s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards; */
+
+
+
+
+ .modal-child {
+   position: absolute;
+   top: 30%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+ }
+
+ .close-x {
+   position: absolute;
+   top: 10px;
+   cursor: pointer;
+   color: rgb(20, 235, 13);
+   font-size: 30px;
+   font-family: 'Nunito Sans', sans-serif;
+
+ }
+
+ .x-test{
+     width: 300px;
+    background-position: center;
+    background-repeat: repeat;
+    background-size: contain;
+    /* background-image: url('x.jpg'); */
+
+ }
