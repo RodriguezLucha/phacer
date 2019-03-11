@@ -19,3 +19,9 @@
     display: flex;
     justify-content: space-between;
 }
+
+#nav-title{
+    color: #FFD662;
+    font-size: 90px;
+    font-family: 'Monoton', cursive;
+}

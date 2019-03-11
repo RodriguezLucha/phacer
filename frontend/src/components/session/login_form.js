@@ -13,10 +13,12 @@ class LoginForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.handleDemoLogin = this.handleDemoLogin.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.currentUser === true) {
+    
+    if (nextProps.currentUser) {
       this.props.history.push('/rooms');
     }
 
@@ -37,12 +39,28 @@ class LoginForm extends React.Component {
       password: this.state.password
     };
 
-    this.props.login(user); 
+    this.props.login(user).then(this.props.closeModal); 
   }
 
-  renderErrors() {
-    return(
-      <ul>
+
+
+  handleDemoLogin(e) {
+    // debugger
+      e.preventDefault();
+      const user = Object.assign({}, { email: 'guest@guest.com', password: "password" });
+
+     this.props.login(user)
+       .then(() => {
+          this.props.closeModal();
+      });
+
+    }
+    
+   
+    
+    renderErrors() {
+      return(
+        <ul>
         {Object.keys(this.state.errors).map((error, i) => (
           <li key={`error-${i}`}>
             {this.state.errors[error]}
@@ -51,26 +69,78 @@ class LoginForm extends React.Component {
       </ul>
     );
   }
-
+  
+  
   render() {
+    
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="login-form-container">
+          <div onClick={this.props.closeModal} className="close-x">
+            <div className="x-test">
+                <div >
+                  X
+                </div>
+            </div>
+            
+          </div>
           <div>
-            <br/>
-              <input type="text"
+            <br />
+            <div>
+
+              <input
+                type="text"
                 value={this.state.email}
-                onChange={this.update('email')}
+                onChange={this.update("email")}
                 placeholder="Email"
-              />
-            <br/>
-              <input type="password"
+                className="login-input"
+                />
+
+            </div>
+            <br />
+            <div>
+
+              <input
+                type="password"
                 value={this.state.password}
-                onChange={this.update('password')}
+                onChange={this.update("password")}
                 placeholder="Password"
+                className="login-input"
               />
-            <br/>
-            <input type="submit" value="Submit" />
+            </div>
+            <br />
+            <div className="loing-form-submit-group">
+
+              <div>
+
+                <input
+                  type="submit"
+                  value="Log in"
+                  className="login-submit-button"
+                />
+              </div>
+
+              <br />
+              <div>
+
+                <input
+                  type="submit"
+                  value="Demo Login"
+                  onClick={this.handleDemoLogin}
+                  className="login-submit-button"
+                />
+              </div>
+            </div>
+
+            <div className="login-signup-group">
+              <div className="login-signup-button-title">
+                Don't have an account ? 
+              </div>
+              <div className="login-signup-button">
+                {this.props.signupForm}
+              </div>
+
+            </div>
             {this.renderErrors()}
           </div>
         </form>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import RoomBox from './room_box';
+import './rooms.scss'
+import Chat from '../chat/chat'
 
 class Room extends React.Component {
   constructor(props) {
@@ -24,19 +26,39 @@ class Room extends React.Component {
       return (<div>There are no Rooms</div>)
     } else {
       return (
-        <div className="table-container">
-          <table >
-              <tr>
-                <th className="header">All Rooms</th>
-              </tr>
-              <tr>
-                <td>
-                {this.state.rooms.map(room => (
-                  <RoomBox key={room._id} text={room.text} />
+        <div className = "room-index-page">
+          <div className = 'room-index-table'>
+          <div class="tbl-header">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <thead>
+                <tr>
+                  <th id='th'>ROOMS</th>
+                  <th id='th'>HOST</th>
+                  <th id='th'>DESCRIPTION</th>
+
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div class="tbl-content">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tbody>
+                <tr> 
+                  <td id='td'>
+                  {this.state.rooms.map(room => (
+                    <RoomBox key={room._id} text={room.text} />
                   ))}
-                </td>
-              </tr>
+                  </td>
+                  <td id='td'>Ari </td>
+                  <td id='td'> Testing a Room </td>
+                </tr>
+          </tbody>
           </table>
+            </div>
+        </div >
+        <div>
+          <Chat />
+        </div>
         </div>
       );
     }
