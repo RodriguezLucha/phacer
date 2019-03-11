@@ -24,11 +24,19 @@ class Room extends React.Component {
       return (<div>There are no Rooms</div>)
     } else {
       return (
-        <div>
-          <h2>All Rooms</h2>
-          {this.state.rooms.map(room => (
-            <RoomBox key={room._id} text={room.text} />
-          ))}
+        <div className="table-container">
+          <table >
+              <tr>
+                <th className="header">All Rooms</th>
+              </tr>
+              <tr>
+                <td>
+                {this.state.rooms.map(room => (
+                  <RoomBox key={room._id} text={room.text} />
+                  ))}
+                </td>
+              </tr>
+          </table>
         </div>
       );
     }
