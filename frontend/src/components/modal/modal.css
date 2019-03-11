@@ -5,6 +5,8 @@
     justify-content: space-evenly;
     height: 300px;
     width: 300px;
+    padding-right: 200px;
+    padding-bottom: 100px;
     /* background-image: url('back1.jpg'); */
 }
 
@@ -14,6 +16,8 @@
     justify-content: space-evenly;
     height: 460px;
     width: 300px;
+    padding-right: 200px;
+    padding-bottom: 100px;
 }
 
 .loing-form-submit-group{
@@ -43,13 +47,28 @@
     border: 1px solid black;
 }
 
-.login-signup-button-title{
-    color: red;
-    font-size: 20px;
-    font-weight: 400;
-    margin-right: 5px;
-    text-shadow: ;
+
+
+.login-signup-button-title {
+  padding-right: 15px;
+  font-size: 18px;
+  color: #fff;
+  font-family: Monoton;
+  -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+  animation: neon1 1.5s ease-in-out infinite alternate;
 }
+
+
+@-webkit-keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF1177, 0 0 70px #FF1177, 0 0 80px #FF1177, 0 0 100px #FF1177, 0 0 150px #FF1177;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF1177, 0 0 35px #FF1177, 0 0 40px #FF1177, 0 0 50px #FF1177, 0 0 75px #FF1177;
+  }
+}
+
 
 .login-signup-group{
     display: flex;
@@ -60,19 +79,20 @@
 
 .modal-background {
    position: fixed;
-   top: 15%;
+   top: 0%;
    bottom: 0;
    right: 0;
-   left: 15%;
+   left: 6%;
    transform:scale(0);
    /* background: rgba(15, 3, 3, 0.5); */
    background-repeat: no-repeat;
    background-size: cover;
+   background-position-x: 150px;
    opacity: 1;
-   z-index: 5;
-   background-image: url('car.jpg'); 
-   width: 70%;
-   height: 70%;
+   z-index: 200;
+   background-image: url('car2.jpg'); 
+   width: 80%;
+   height: 100%;
    
    transform:scaleY(.01) scaleX(0);
    animation:unfoldIn 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
@@ -97,6 +117,8 @@
 .signup-botton{
     align-self: center;
 }
+
+
   
 .signup-form{
     display:flex;
@@ -135,8 +157,8 @@
 
  .modal-child {
    position: absolute;
-   top: 30%;
-   left: 50%;
+   top: 40%;
+   left: 40%;
    transform: translate(-50%, -50%);
  }
 
@@ -144,7 +166,7 @@
    position: absolute;
    top: 10px;
    cursor: pointer;
-   color: rgb(20, 235, 13);
+   color: white;
    font-size: 30px;
    font-family: 'Nunito Sans', sans-serif;
 

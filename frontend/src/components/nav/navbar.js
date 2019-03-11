@@ -13,6 +13,7 @@ class NavBar extends React.Component {
   logoutUser(e) {
       e.preventDefault();
       this.props.logout();
+      this.props.history.push('/');
   }
 
   getLinks() {
@@ -28,8 +29,8 @@ class NavBar extends React.Component {
       } else {
         return (
             <div>
-                <button onClick={() => this.props.openModal('login')} >Login</button>
-                <button onClick={() => this.props.openModal('signup')} >Signup</button>
+            {/* //     <button onClick={() => this.props.openModal('login')} >Login</button>
+            //     <button onClick={() => this.props.openModal('signup')} >Signup</button> */}
             </div>
         );
       }
@@ -38,7 +39,7 @@ class NavBar extends React.Component {
   render() {
       return (
         <div>
-            <h1 id="nav-title">Phacer</h1>
+            {/* <h1>Phacer</h1> */}
             { this.getLinks() }
             <Timer/>
         </div>

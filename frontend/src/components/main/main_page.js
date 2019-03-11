@@ -3,6 +3,10 @@ import './main_page.scss'
 
 class MainPage extends React.Component {
 
+  constructor(props){
+    super(props);
+  }
+
   render() {
     return (
       <>
@@ -23,12 +27,12 @@ class MainPage extends React.Component {
           </div>
           <div className="text">
           <br></br>
-            <div class="logo texture">
+            <div className="logo texture">
               <h1 className="logo">PHACER</h1> <br></br>
               <h1 className="logo"> </h1>
             </div>
-              <button id="login-splash-button">LOGIN</button>
-              <button id="join-splash-button">JOIN</button>
+          <button onClick={() => this.props.openModal('login')} id="login-splash-button">LOGIN</button>
+          <button onClick={() => this.props.openModal('signup')} id="join-splash-button">JOIN</button>
           </div>
       </>
     );
