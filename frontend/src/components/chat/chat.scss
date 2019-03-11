@@ -1,0 +1,128 @@
+// #messages{
+//     height: 300px;
+// }
+
+.card{
+    min-width: 25vw;
+    min-height: 50vh;
+    display: flex;
+    background: rgba(53, 52, 52, 0.425);
+    justify-content: space-between;
+
+}
+
+.messages {
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-end;
+}
+
+.card-title{
+    text-align: center;
+}
+
+body {
+	font-family: "Helvetica Neue";
+	font-size: 20px;
+	font-weight: normal;
+}
+
+section {
+	max-width: 450px;
+	margin: 50px auto;
+
+	div {
+		max-width: 255px;
+		word-wrap: break-word;
+		margin-bottom: 12px;
+    line-height: 24px;
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+	}
+}
+
+.card-body{
+    max-height: 30vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.card-footer{
+    background: transparent;
+}
+
+.card-footer input{
+    background: transparent;
+}
+
+.clear {clear: both}
+.from-me {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	position:relative;
+	padding:10px 20px;
+	color:white; 
+	background:#0B93F6;
+	border-radius:25px;
+	float: right;
+		
+	&:before {
+		content:"";
+		position:absolute;
+		z-index:-1;
+		bottom:-2px;
+		right:-7px;
+		height:20px;
+		// border-right:20px solid #0B93F6;
+		border-bottom-left-radius: 16px 14px;
+		-webkit-transform:translate(0, -2px);
+	}
+
+	&:after {
+		content:"";
+		position:absolute;
+		z-index:1;
+		bottom:-2px;
+		right:-56px;
+		width:26px;
+		height:20px;
+		background:transparent;
+		border-bottom-left-radius: 10px;
+		-webkit-transform:translate(-30px, -2px);
+	}
+}
+.from-them {
+	position:relative;
+	padding:10px 20px;
+	background:#E5E5EA;
+	border-radius:25px;
+	color: black;
+  float: left;
+		
+	&:before {
+		content:"";
+		position:absolute;
+		z-index:2;
+		bottom:-2px;
+		left:-7px;
+		height:20px;
+		border-left:20px solid #E5E5EA;
+		border-bottom-right-radius: 16px 14px;
+		-webkit-transform:translate(0, -2px);
+	}
+
+	&:after {
+		content:"";
+		position:absolute;
+		z-index:3;
+		bottom:-2px;
+		left:4px;
+		width:26px;
+		height:20px;
+		background:white;
+		border-bottom-right-radius: 10px;
+		-webkit-transform:translate(-30px, -2px);
+	}
+}
