@@ -4,7 +4,9 @@ class RoomBox extends React.Component {
   render() {
     return (
         <div>
-            <h3>{this.props.text}</h3>
+            <tr>
+              <td>{this.props.text}</td>
+            </tr>
         </div>
     );
   }

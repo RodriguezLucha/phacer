@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import './navbar.css'
+import Timer from '../Timer/timer'
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class NavBar extends React.Component {
   logoutUser(e) {
       e.preventDefault();
       this.props.logout();
+      this.props.history.push('/');
   }
 
   getLinks() {
@@ -27,8 +29,8 @@ class NavBar extends React.Component {
       } else {
         return (
             <div>
-                <Link to={'/signup'}>Signup</Link>
-                <Link to={'/login'}>Login</Link>
+            {/* //     <button onClick={() => this.props.openModal('login')} >Login</button>
+            //     <button onClick={() => this.props.openModal('signup')} >Signup</button> */}
             </div>
         );
       }
@@ -37,8 +39,9 @@ class NavBar extends React.Component {
   render() {
       return (
         <div>
-            <h1>Phacer</h1>
+            {/* <h1>Phacer</h1> */}
             { this.getLinks() }
+            <Timer/>
         </div>
       );
   }
