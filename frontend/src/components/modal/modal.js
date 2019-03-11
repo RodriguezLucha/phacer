@@ -3,6 +3,8 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import LoginFormContainer from '../../components/session/login_form_container';
 import SignupFormContainer from '../../components/session/signup_form_container';
+import './modal.css';
+
 
 function Modal({ modal, closeModal }) {
     if (!modal) {
@@ -19,12 +21,21 @@ function Modal({ modal, closeModal }) {
         default:
             return null;
     }
+
+    
+    
+
     return (
-        <div className="modal-background" onClick={closeModal}>
-            <div className="modal-child" onClick={e => e.stopPropagation()}>
-                {component}
-            </div>
+      // <div className="modal-background" onClick={closeModal}>
+      <div
+        className="modal-background"
+        id="modal-background"
+        
+      >
+        <div className="modal-child" onClick={e => e.stopPropagation()}>
+          {component}
         </div>
+      </div>
     );
 }
 
