@@ -39,7 +39,7 @@ class NavBar extends React.Component {
   render() {
       return (
         <div>
-            {/* <h1>Phacer</h1> */}
+            <h1 id="nav-title">Phacer</h1>
             { this.getLinks() }
             <Timer/>
         </div>

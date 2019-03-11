@@ -12,26 +12,47 @@ export default class SinglePlayer extends Component {
 
   }
 
+
   preload() {
+    //this.game.load.tilemap('map', 'game/map.json', null, Phaser.Tilemap.TILED_JSON);
     this.game.load.image('car', 'game/car.png');
     this.game.load.image('sky', 'game/sunset.png');
+    this.game.load.image('road', 'game/road.png');
+
+    this.game.load.tilemap('map', 'game/collision_test.json', null, Phaser.Tilemap.TILED_JSON);
+    this.game.load.image('ground_1x1', 'game/ground_1x1.png');
+    this.game.load.image('walls_1x2', 'game/walls_1x2.png');
+    this.game.load.image('tiles2', 'game/tiles2.png');
   }
 
   create() {
     this.game.physics.startSystem(Phaser.Physics.P2JS);
-    // bullets = game.add.group();
-    // for (var i = 0; i < 10; i++) {
-    //   var bullet = bullets.create(game.rnd.integerInRange(200, 1700), game.rnd.integerInRange(-200, 400), 'tinycar');
-    //   game.physics.p2.enable(bullet, false);
-    // }
+
+    this.map = this.game.add.tilemap('map');
+
+    this.map.addTilesetImage('ground_1x1');
+    this.map.addTilesetImage('walls_1x2');
+    this.map.addTilesetImage('tiles2');
+
+    this.layer = this.map.createLayer('Tile Layer 1');
+
+    this.layer.resizeWorld();
+
+    this.map.setCollisionBetween(1, 12);
+
+    //  Convert the tilemap layer into bodies. Only tiles that collide (see above) are created.
+    //  This call returns an array of body objects which you can perform addition actions on if
+    //  required. There is also a parameter to control optimising the map build.
+    this.game.physics.p2.convertTilemap(this.map, this.layer);
+
+
+
     this.cursors = this.game.input.keyboard.createCursorKeys();
     this.ship = this.game.add.sprite(32, this.game.world.height - 150, 'car');
-    console.log(this.ship)
+    this.game.camera.follow(this.ship);
     this.game.physics.p2.enable(this.ship);
   }
   update() {
-    // bullets.forEachAlive(moveBullets, this);  //make bullets accelerate to ship
-
     let ship = this.ship;
     let cursors = this.cursors;
 
