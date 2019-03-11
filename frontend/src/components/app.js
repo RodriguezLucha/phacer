@@ -7,7 +7,7 @@ import RoomsContainer from './rooms/rooms_container';
 // import MainPage from './main/main_page';
 // import LoginFormContainer from './session/login_form_container';
 // import SignupFormContainer from './session/signup_form_container';
-import SinglePlayerContainer from './single_player_container';
+import SinglePlayerContainer from './single_player/single_player_container';
 import ProfileContainer from './profile/profile_container';
 import RoomComposeContainer from './rooms/room_compose_container';
 import Modal from './modal/modal';
