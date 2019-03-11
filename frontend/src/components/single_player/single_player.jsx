@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Phaser, { TileSprite } from 'phaser-ce';
-
+import './single_player.scss'
 export default class SinglePlayer extends Component {
   componentDidMount() {
 
@@ -31,8 +31,8 @@ export default class SinglePlayer extends Component {
     this.map = this.game.add.tilemap('map');
 
     this.map.addTilesetImage('ground_1x1');
-    this.map.addTilesetImage('walls_1x2');
-    this.map.addTilesetImage('tiles2');
+    //this.map.addTilesetImage('walls_1x2');
+    //this.map.addTilesetImage('tiles2');
 
     this.layer = this.map.createLayer('Tile Layer 1');
 
@@ -44,8 +44,6 @@ export default class SinglePlayer extends Component {
     //  This call returns an array of body objects which you can perform addition actions on if
     //  required. There is also a parameter to control optimising the map build.
     this.game.physics.p2.convertTilemap(this.map, this.layer);
-
-
 
     this.cursors = this.game.input.keyboard.createCursorKeys();
     this.ship = this.game.add.sprite(32, this.game.world.height - 150, 'car');
@@ -76,7 +74,10 @@ shouldComponentUpdate(nextProps, nextState) {
 
 render() {
   return (
-    <div className="phaserContainer" id="phaser-container">
+    <div className="gamegame">
+      <div className="phaserContainer" id="phaser-container">
+      
+      </div>
     </div>
   )
 }
