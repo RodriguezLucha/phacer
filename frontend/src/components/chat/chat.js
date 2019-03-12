@@ -9,18 +9,31 @@ class Chat extends React.Component {
         this.state = {
             username: '',
             message: '',
-            messages: []
+            messages: [],
         };
-        this.socket = io.connect(window.location.hostname);
+        let url = `${window.location.hostname}:${window.location.port}`;
+        this.socket = io.connect(url);
 
         this.socket.on('RECEIVE_MESSAGE', function (data) {
+            data['timestamp'] = new Date().getTime();
             addMessage(data);
+            
+            //this.messages.scrollIntoView({block: 'end', behavior: 'smooth'});
+            
         });
 
         const addMessage = data => {
-            console.log(data);
             this.setState({ messages: [...this.state.messages, data] });
-            console.log(this.state.messages);
+            if(this.refs){
+                let messages = this.state.messages;
+                let lastMessage = messages[messages.length - 1];
+                let lastTimestamp = lastMessage.timestamp;
+
+                this.refs[lastTimestamp].scrollIntoView({
+                    block: 'end',
+                    behavior: 'smooth'
+                });
+            }
         };
 
         this.sendMessage = ev => {
@@ -30,9 +43,9 @@ class Chat extends React.Component {
                 message: this.state.message
             })
             this.setState({ message: '' });
-
         }
     }
+
     render() {
         return (
             <div className="chat-container">
@@ -45,7 +58,7 @@ class Chat extends React.Component {
                                 <div className="messages">
                                     {this.state.messages.map(message => {
                                         return (
-                                            <section id='chat-total'>
+                                            <section key={`${message.author}:${message.message}:${message.timestamp}`} ref={message.timestamp} id='chat-total'>
                                                 <div className="from-me">{message.author}: {message.message}</div>
                                             </section>
                                         )

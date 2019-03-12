@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Phaser, { TileSprite } from 'phaser-ce';
+import Phaser from 'phaser-ce';
 import './single_player.scss'
 export default class SinglePlayer extends Component {
   componentDidMount() {
@@ -31,8 +31,6 @@ export default class SinglePlayer extends Component {
     this.map = this.game.add.tilemap('map');
 
     this.map.addTilesetImage('ground_1x1');
-    //this.map.addTilesetImage('walls_1x2');
-    //this.map.addTilesetImage('tiles2');
 
     this.layer = this.map.createLayer('Tile Layer 1');
 
@@ -40,9 +38,6 @@ export default class SinglePlayer extends Component {
 
     this.map.setCollisionBetween(1, 12);
 
-    //  Convert the tilemap layer into bodies. Only tiles that collide (see above) are created.
-    //  This call returns an array of body objects which you can perform addition actions on if
-    //  required. There is also a parameter to control optimising the map build.
     this.game.physics.p2.convertTilemap(this.map, this.layer);
 
     this.cursors = this.game.input.keyboard.createCursorKeys();

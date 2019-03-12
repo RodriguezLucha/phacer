@@ -41,16 +41,16 @@ class Timer extends React.Component {
 
       
     render() {
-      let start = (this.state.time == 0) ?
+      let start = (this.state.time === 0) ?
         <button onClick={this.startTimer}>Start</button>: null
 
       let stop = (this.state.isOn) ?
         <button onClick={this.stopTimer}>Stop</button>: null
 
-      let reset = (this.state.time != 0 && !this.state.isOn) ?
+      let reset = (this.state.time !== 0 && !this.state.isOn) ?
         <button onClick={this.resetTimer}>Reset</button>: null
       
-      let resume = (this.state.time != 0 && !this.state.isOn) ?
+      let resume = (this.state.time !== 0 && !this.state.isOn) ?
         <button onClick={this.startTimer}>resume</button>: null
 
       return (
