@@ -7,10 +7,13 @@ class Chat extends React.Component {
         super(props);
 
         this.state = {
-            username: '',
+            username: this.props.users.handle,
             message: '',
             messages: [],
         };
+
+
+
         let url = `${window.location.hostname}:${window.location.port}`;
         this.socket = io.connect(url);
 
@@ -59,7 +62,7 @@ class Chat extends React.Component {
                                     {this.state.messages.map(message => {
                                         return (
                                             <section key={`${message.author}:${message.message}:${message.timestamp}`} ref={message.timestamp} id='chat-total'>
-                                                <div className="from-me">{message.author}: {message.message}</div>
+                                                <div className="from-me">{this.props.users.handle}: {message.message}</div>
                                             </section>
                                         )
                                     })}
@@ -67,8 +70,6 @@ class Chat extends React.Component {
 
                             </div>
                             <div className="card-footer">
-                                <input type="text" placeholder="Name" value={this.state.username} onChange={ev => this.setState({ username: ev.target.value })} className="form-control" />
-                                <br />
                                 <input type="text" placeholder="Message" className="form-control" value={this.state.message} onChange={ev => this.setState({ message: ev.target.value })} />
                                 <br />
                                 <button onClick={this.sendMessage} className="btn btn-primary form-control">Send</button>

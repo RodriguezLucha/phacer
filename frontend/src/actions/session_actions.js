@@ -5,6 +5,14 @@ export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
 export const RECEIVE_USER_SIGN_IN = "RECEIVE_USER_SIGN_IN";
+export const RECEIVE_USER_HANDLE = "RECEIVE_USER_HANDLE";
+
+export const receiveUserHandle = payload => {
+    return ({
+        type: RECEIVE_USER_HANDLE,
+        userInfo: payload.data
+    })
+};
 
 export const receiveCurrentUser = currentUser => ({
     type: RECEIVE_CURRENT_USER,
@@ -51,3 +59,10 @@ export const logout = () => dispatch => {
     dispatch(logoutUser())
 };
 
+export const currentUser = () => dispatch => {
+        APIUtil.currentUser().then((data) => (
+            dispatch(receiveUserHandle(data))
+        ), err => (
+            dispatch(receiveErrors(err.response.data))
+        ))
+};
