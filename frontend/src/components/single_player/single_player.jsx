@@ -74,7 +74,7 @@ shouldComponentUpdate(nextProps, nextState) {
 
 render() {
   return (
-    <div className="gamegame">
+    <div className="bg">
       <div className="phaserContainer" id="phaser-container">
       
       </div>
