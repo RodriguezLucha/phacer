@@ -50,6 +50,8 @@ section {
 	}
 }
 
+
+
 .card-body{
     max-height: 30vh;
     overflow-y: scroll;
@@ -131,4 +133,9 @@ section {
 		border-bottom-right-radius: 10px;
 		-webkit-transform:translate(-30px, -2px);
 	}
+}
+
+.btn-primary{
+	background: rgb(24, 13, 129);
+	border-color: rgb(24, 13, 129);
 }
