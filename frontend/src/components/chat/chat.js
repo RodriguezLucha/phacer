@@ -24,7 +24,7 @@ class Chat extends React.Component {
 
         const addMessage = data => {
             this.setState({ messages: [...this.state.messages, data] });
-            if(this.refs){
+            if(this.refs && this.state.messages){
                 let messages = this.state.messages;
                 let lastMessage = messages[messages.length - 1];
                 let lastTimestamp = lastMessage.timestamp;
