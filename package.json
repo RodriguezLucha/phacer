@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "A Twitter clone built with the MERN stack",
   "main": "app.js",
+  "engines": {
+    "node": "11.2.0",
+    "npm": "6.4.1"
+  }
   "scripts": {
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
     "start": "node app.js",
