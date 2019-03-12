@@ -16,13 +16,9 @@ import Modal from './modal/modal';
 const App = () => (
   <div>
     <Modal />
-    <NavBarContainer />
     <Switch>
       <AuthRoute exact path="/" component={MainPageContainer} />
-      {/* <AuthRoute exact path="/login" component={LoginFormContainer} /> */}
-      {/* <AuthRoute exact path="/signup" component={SignupFormContainer} /> */}
-
-      <AuthRoute exact path="/single_player" component={SinglePlayerContainer} />
+      <ProtectedRoute exact path="/single_player" component={SinglePlayerContainer} />
       <ProtectedRoute exact path="/rooms" component={RoomsContainer} />
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
       <ProtectedRoute exact path="/new_room" component={RoomComposeContainer} />

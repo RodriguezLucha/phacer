@@ -50,7 +50,7 @@ table{
 /* demo styles */
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
-body{
+.room-index-page {
 //   background: -webkit-linear-gradient(left, #141d70, #30929b);
 //   background: linear-gradient(to right, #6d2988, #f3e40d);
     background: url('https://media.giphy.com/media/piFGZ3Vxk2NHOAPgE3/giphy.gif') no-repeat center center fixed; 
@@ -66,8 +66,14 @@ section{
 
 .room-index-page{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.room-index-page-2 {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
 }
 
 

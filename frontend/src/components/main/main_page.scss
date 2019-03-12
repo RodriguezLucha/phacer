@@ -43,8 +43,8 @@
 //theme
 $maroon: rgb(18, 1, 24);
 $black: #292929;
-$bg: white;
-// $bg: #191919;
+// $bg: white;
+$bg: #191919;
 $lines: #747574;
 body {
   background-color: $bg;
@@ -442,4 +442,6 @@ border-spacing: 0;
 }
 
 
-
+button:focus {
+  outline: none;
+}

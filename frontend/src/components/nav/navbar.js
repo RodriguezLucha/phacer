@@ -23,6 +23,7 @@ class NavBar extends React.Component {
                 <Link to={'/rooms'}>All Rooms</Link>
                 <Link to={'/profile'}>Profile</Link>
                 <Link to={'/new_room'}>Create a Room</Link>
+                <Link to={'/single_player'}>Single Player</Link>
                 <button onClick={this.logoutUser}>Logout</button>
             </div>
         );

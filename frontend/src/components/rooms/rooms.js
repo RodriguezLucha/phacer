@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import RoomBox from './room_box';
 import './rooms.scss'
 import Chat from '../chat/chat'
+import NavBarContainer from '../nav/navbar_container';
 
 class Room extends React.Component {
   constructor(props) {
@@ -27,6 +28,8 @@ class Room extends React.Component {
     } else {
       return (
         <div className = "room-index-page">
+          <NavBarContainer/>
+          <div className = "room-index-page-2">
           <div className = 'room-index-table'>
           <div class="tbl-header">
             <table cellpadding="0" cellspacing="0" border="0">
@@ -58,6 +61,7 @@ class Room extends React.Component {
         </div >
         <div>
           <Chat />
+        </div>
         </div>
         </div>
       );
