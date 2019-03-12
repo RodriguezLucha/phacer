@@ -31,20 +31,19 @@ class Room extends React.Component {
           <NavBarContainer/>
           <div className = "room-index-page-2">
           <div className = 'room-index-table'>
-          <div class="tbl-header">
-            <table cellpadding="0" cellspacing="0" border="0">
+          <div className = "tbl-header">
+            <table cellPadding="0" cellSpacing="0" border="0">
               <thead>
                 <tr>
                   <th id='th'>ROOMS</th>
                   <th id='th'>HOST</th>
                   <th id='th'>DESCRIPTION</th>
-
                 </tr>
               </thead>
             </table>
           </div>
-          <div class="tbl-content">
-            <table cellpadding="0" cellspacing="0" border="0">
+          <div className="tbl-content">
+            <table cellPadding="0" cellSpacing="0" border="0">
               <tbody>
                 <tr> 
                   <td id='td'>

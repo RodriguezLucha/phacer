@@ -11,16 +11,16 @@ class Chat extends React.Component {
             message: '',
             messages: []
         };
-        this.socket = io.connect(window.location.hostname);
+        let url = `${window.location.hostname}:${window.location.port}`;
+        this.socket = io.connect(url);
 
         this.socket.on('RECEIVE_MESSAGE', function (data) {
+            data['timestamp'] = new Date().getTime();
             addMessage(data);
         });
 
         const addMessage = data => {
-            console.log(data);
             this.setState({ messages: [...this.state.messages, data] });
-            console.log(this.state.messages);
         };
 
         this.sendMessage = ev => {
@@ -30,7 +30,6 @@ class Chat extends React.Component {
                 message: this.state.message
             })
             this.setState({ message: '' });
-
         }
     }
     render() {
@@ -45,7 +44,7 @@ class Chat extends React.Component {
                                 <div className="messages">
                                     {this.state.messages.map(message => {
                                         return (
-                                            <section id='chat-total'>
+                                            <section key={`${message.author}:${message.message}:${message.timestamp}`} id='chat-total'>
                                                 <div className="from-me">{message.author}: {message.message}</div>
                                             </section>
                                         )
