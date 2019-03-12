@@ -4,6 +4,8 @@ import RoomBox from './room_box';
 import './rooms.scss'
 import Chat from '../chat/chat'
 import NavBarContainer from '../nav/navbar_container';
+import { Link } from 'react-router-dom'
+
 
 class Room extends React.Component {
   constructor(props) {
@@ -59,6 +61,11 @@ class Room extends React.Component {
           </table>
             </div>
         </div >
+        <div className="start-wrapper">
+              <Link className="start-button" to={'/single_player'}><span>
+Play
+</span></Link>
+        </div>
         <div>
           <Chat />
         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import './navbar.css'
+import './navbar.scss'
 import Timer from '../Timer/timer'
 
 class NavBar extends React.Component {
@@ -23,8 +23,7 @@ class NavBar extends React.Component {
                 <Link to={'/rooms'}>All Rooms</Link>
                 <Link to={'/profile'}>Profile</Link>
                 <Link to={'/new_room'}>Create a Room</Link>
-                <Link to={'/single_player'}>Single Player</Link>
-                <button onClick={this.logoutUser}>Logout</button>
+            <button className="log-out-btn" onClick={this.logoutUser}><span>Logout</span></button>
             </div>
         );
       } else {
