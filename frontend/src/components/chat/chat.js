@@ -28,14 +28,18 @@ class Chat extends React.Component {
         const addMessage = data => {
             this.setState({ messages: [...this.state.messages, data] });
             if(this.refs && this.state.messages){
+                
                 let messages = this.state.messages;
                 let lastMessage = messages[messages.length - 1];
                 let lastTimestamp = lastMessage.timestamp;
 
-                this.refs[lastTimestamp].scrollIntoView({
-                    block: 'end',
-                    behavior: 'smooth'
-                });
+                if (this.refs[lastTimestamp]){
+                    this.refs[lastTimestamp].scrollIntoView({
+                        block: 'end',
+                        behavior: 'smooth'
+                    });
+                }
+
             }
         };
 
