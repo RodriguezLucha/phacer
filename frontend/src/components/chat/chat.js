@@ -11,7 +11,7 @@ class Chat extends React.Component {
             message: '',
             messages: []
         };
-        this.socket = io('https://phacer.herokuapp.com');
+        this.socket = io.connect(window.location.hostname);
 
         this.socket.on('RECEIVE_MESSAGE', function (data) {
             addMessage(data);
