@@ -93,7 +93,6 @@ export default class SinglePlayer extends Component {
   render() {
     return (
       <div className="phaserContainer" id="phaser-container">
-        <button onClick={this.stopTimer}></button>
       </div>
     )
   }
