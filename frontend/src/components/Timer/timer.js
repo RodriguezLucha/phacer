@@ -1,5 +1,6 @@
 import React from 'react';
 import prettyMs from 'pretty-ms';
+import SinglePlayer from '../single_player';
 
 class Timer extends React.Component {
     constructor(props){
@@ -29,9 +30,11 @@ class Timer extends React.Component {
     }
 
     stopTimer() {
-      this.setState({isOn: false})
-      clearInterval(this.timer)
-      console.log("stop")
+      if (this.state.isOn === true){
+        this.setState({isOn: false})
+        clearInterval(this.timer)
+        console.log("stop")
+      }
     }
 
     resetTimer() {
@@ -60,6 +63,7 @@ class Timer extends React.Component {
           {resume}
           {stop}
           {reset}
+          <SinglePlayer stopTimer={this.stopTimer}/>
         </div>
       );
     }

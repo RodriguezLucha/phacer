@@ -1,0 +1,16 @@
+{ 
+    "tetrisblock3": [
+        
+            {
+                "density": 2, "friction": 0, "bounce": 0, 
+                "filter": { "categoryBits": 1, "maskBits": 65535 },
+                "shape": [   144, 0  ,  144, 96  ,  96, 48  ,  96, 0  ]
+            }  ,
+            {
+                "density": 2, "friction": 0, "bounce": 0, 
+                "filter": { "categoryBits": 1, "maskBits": 65535 },
+                "shape": [   96, 48  ,  144, 96  ,  0, 96  ,  0, 48  ]
+            }  
+    ]
+    
+}
