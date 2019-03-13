@@ -39,7 +39,7 @@ class Room extends React.Component {
   }
 
   render() {
-    let timerItems = this.props.timers.map(timer => {
+    let timerItems = this.props.timers.slice(0,11).map(timer => {
       console.log(timer);
       return(
         <div key={timer.id}>

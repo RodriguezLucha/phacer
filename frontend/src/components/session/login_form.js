@@ -8,7 +8,6 @@ class LoginForm extends React.Component {
     this.state = {
       email: '',
       password: '',
-      // errors: {}
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -99,7 +98,7 @@ class LoginForm extends React.Component {
 
             </div>
             <br />
-            <div>
+            <div className="errors-margin">
 
               <input
                 type="password"
@@ -109,7 +108,14 @@ class LoginForm extends React.Component {
                 className="login-input"
               />
             </div>
+
+            <div className="errors">
+              {this.renderErrors()}
+            </div>
+
+
             <br />
+
             <div className="loing-form-submit-group">
 
               <div>
@@ -142,9 +148,7 @@ class LoginForm extends React.Component {
               </div>
 
             </div>
-            <div className="errors">
-              {this.renderErrors()}
-            </div>
+            
           </div>
         </form>
       </div>

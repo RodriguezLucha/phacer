@@ -88,6 +88,10 @@ class SignupForm extends React.Component {
                   placeholder="Confirm Password"
                   className="signup-input"  
                 />
+              <br />
+              <div className="errors">
+                {this.renderErrors()}
+              </div>
               <br/>
               <input type="submit" value="Sign up" className="signup-botton"/>
               <br />
@@ -101,7 +105,7 @@ class SignupForm extends React.Component {
                   {this.props.loginForm}
                 </div>
               </div>
-              {this.renderErrors()}
+              
             </div>
         </form>
       </div>
