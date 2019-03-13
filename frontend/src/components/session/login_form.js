@@ -8,7 +8,7 @@ class LoginForm extends React.Component {
     this.state = {
       email: '',
       password: '',
-      errors: {}
+      // errors: {}
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,7 +17,6 @@ class LoginForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    
     if (nextProps.currentUser) {
       this.props.history.push('/rooms');
     }
@@ -38,10 +37,11 @@ class LoginForm extends React.Component {
       email: this.state.email,
       password: this.state.password
     };
-
-    this.props.login(user).then(this.props.closeModal); 
+    this.props.login(user);
+  //   .then(() => {
+  //     this.props.closeModal(); 
+  // });
   }
-
 
 
   handleDemoLogin(e) {
@@ -59,11 +59,12 @@ class LoginForm extends React.Component {
    
     
     renderErrors() {
+      // debugger
       return(
         <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
+        {Object.keys(this.props.errors).map((error, i) => (
           <li key={`error-${i}`}>
-            {this.state.errors[error]}
+            {this.props.errors[error]}
           </li>
         ))}
       </ul>
@@ -141,7 +142,9 @@ class LoginForm extends React.Component {
               </div>
 
             </div>
-            {this.renderErrors()}
+            <div className="errors">
+              {this.renderErrors()}
+            </div>
           </div>
         </form>
       </div>
