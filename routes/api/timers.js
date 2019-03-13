@@ -27,6 +27,7 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
   console.log(req.body);
   const newTimer = new Timer({
     endTime: req.body.endTime,
+    intTime: req.body.intTime,
     handle: req.body.handle
   });
   newTimer.save().then(timer => res.json(timer));
