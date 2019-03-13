@@ -3,6 +3,7 @@ import { fetchRooms } from '../../actions/room_actions';
 import {currentUser} from '../../actions/session_actions';
 import Rooms from './rooms';
 import {fetchTimers} from '../../actions/timer_actions';
+import { logout } from '../../actions/session_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -17,7 +18,8 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchRooms: () => dispatch(fetchRooms()),
     fetchTimers: () => dispatch(fetchTimers()),
-    getCurrentUserHandle: () => dispatch(currentUser())
+    getCurrentUserHandle: () => dispatch(currentUser()),
+    logout: () => dispatch(logout())
   };
 };
 

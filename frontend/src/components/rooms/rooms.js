@@ -15,6 +15,7 @@ class Room extends React.Component {
     this.state = {
       rooms: []
     }
+    this.logoutUser = this.logoutUser.bind(this);
   }
 
   componentDidMount(){
@@ -38,21 +39,31 @@ class Room extends React.Component {
     this.setState({ rooms: newState.rooms });
   }
 
+  logoutUser(e) {
+    e.preventDefault();
+    this.props.logout();
+    this.props.history.push('/');
+  }
+
   render() {
     let timerItems = this.props.timers.sort((a, b) => {
       console.log(a)
       const l = a.intTime;
       const r = b.intTime;
-      return l < r ? 1: l > r ? -1 :0;
-    }).map(timer => {
+      return l > r ? 1: l < r ? -1 :0;
+    }).slice(0, 10).map((timer, idx) => {
       console.log(timer);
       return(
         <tr>
+          <td id="td">
+            {idx+1}
+          </td>
           <TimerItems  timer={timer}/> 
         </tr>
 
       )
     })
+
 
     if (this.state.rooms.length === 0) {
       return (<div>There are no Rooms</div>)
@@ -66,6 +77,7 @@ class Room extends React.Component {
             <table cellPadding="0" cellSpacing="0" border="0">
               <thead>
                 <tr>
+                  <th id='th'>RANK</th>
                   <th id='th'>USERNAME</th>
                   <th id='th'>HI-SCORE</th>
                 </tr>

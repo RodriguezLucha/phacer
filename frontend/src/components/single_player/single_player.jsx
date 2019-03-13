@@ -55,7 +55,7 @@ export default class SinglePlayer extends Component {
     
     this.layer.resizeWorld();
 
-    this.map.setCollisionBetween(1, 1);
+    this.map.setCollisionBetween(1, 12);
 
 
 

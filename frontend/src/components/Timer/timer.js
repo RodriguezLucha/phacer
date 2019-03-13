@@ -74,11 +74,15 @@ class Timer extends React.Component {
         <button onClick={this.startTimer}>resume</button>: null
 
       return (
-        <div>
-          <h3>timer: {prettyMs(this.state.time)}</h3>
+        <>
+        <div className="total">
+            <h3 className='game-timer'><i class="fas fa-stopwatch"></i>
+
+ {prettyMs(this.state.time)}</h3>
           <SinglePlayerContainer stopTimer={this.stopTimer} startTimer={this.startTimer} end={this.state.end} recordTimer={this.props.recordTimer} fetchTimers ={this.props.fetchTimers}/>
           {/* <ScoreContainer end={this.state.end}/> */}
         </div>
+        </>
       );
     }
 }
