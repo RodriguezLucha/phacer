@@ -26,3 +26,9 @@
 ## Future Direction
 
 * Add multiplayer and rooms
+
+## Team
+ * [aghlichl](https://github.com/aghlichl)
+ * [cindyko226](https://github.com/cindyko226)
+ * [Vanchen07](https://github.com/Vanchen07)
+ * [RodriguezLucha](https://github.com/RodriguezLucha/)
