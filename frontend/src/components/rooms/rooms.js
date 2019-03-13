@@ -45,7 +45,7 @@ class Room extends React.Component {
       return l < r ? 1: l > r ? -1 :0;
     }).map(timer => {
       return(
-        <div key={timer.id}>
+        <div key = {timer._id}>
           <TimerItems  timer={timer}/> 
         </div>
       )

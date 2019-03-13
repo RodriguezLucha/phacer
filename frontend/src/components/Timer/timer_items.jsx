@@ -3,11 +3,6 @@ import React from 'react';
 
 
 class TimerItems extends React.Component {
-    constructor(props){
-        super(props)
-    }
-
-
     render(){
         return (
             <div className="score_row">
@@ -21,7 +16,6 @@ class TimerItems extends React.Component {
             </div>
         )
     }
-
 }
 
 export default TimerItems;
