@@ -5,10 +5,18 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const socket = require('socket.io');
+const path = require('path');
 
 const users = require('./routes/api/users');
 const rooms = require('./routes/api/rooms');
 const timers = require('./routes/api/timers');
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('frontend/build'));
+  app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  })
+}
 
 mongoose
   .connect(db, {useNewUrlParser: true})

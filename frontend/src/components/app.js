@@ -1,7 +1,6 @@
 import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Switch } from 'react-router-dom';
-import NavBarContainer from './nav/navbar_container';
 import MainPageContainer from './main/main_page_container';
 import RoomsContainer from './rooms/rooms_container';
 // import MainPage from './main/main_page';

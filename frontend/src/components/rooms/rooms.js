@@ -4,8 +4,9 @@ import RoomBox from './room_box';
 import './rooms.scss'
 import Chat from '../chat/chat'
 import NavBarContainer from '../nav/navbar_container';
-import ScoreContainer from '../Timer/scores_container';
 import TimerItems from '../Timer/timer_items';
+import { Link } from 'react-router-dom'
+
 
 class Room extends React.Component {
   constructor(props) {
@@ -30,6 +31,7 @@ class Room extends React.Component {
     // debugger
     this.props.fetchTimers();
     this.props.fetchRooms();
+    this.props.getCurrentUserHandle();
   }
 
   componentWillReceiveProps(newState) {
@@ -38,8 +40,9 @@ class Room extends React.Component {
 
   render() {
     let timerItems = this.props.timers.map(timer => {
+      console.log(timer);
       return(
-        <div>
+        <div key={timer.id}>
           <TimerItems  timer={timer}/> 
         </div>
       )
@@ -59,20 +62,19 @@ class Room extends React.Component {
           </h1>
           <div className = "room-index-page-2">
           <div className = 'room-index-table'>
-          <div class="tbl-header">
-            <table cellpadding="0" cellspacing="0" border="0">
+          <div className = "tbl-header">
+            <table cellPadding="0" cellSpacing="0" border="0">
               <thead>
                 <tr>
                   <th id='th'>ROOMS</th>
                   <th id='th'>HOST</th>
                   <th id='th'>DESCRIPTION</th>
-
                 </tr>
               </thead>
             </table>
           </div>
-          <div class="tbl-content">
-            <table cellpadding="0" cellspacing="0" border="0">
+          <div className="tbl-content">
+            <table cellPadding="0" cellSpacing="0" border="0">
               <tbody>
                 <tr> 
                   <td id='td'>
@@ -87,8 +89,13 @@ class Room extends React.Component {
           </table>
             </div>
         </div >
+        <div className="start-wrapper">
+              <Link className="start-button" to={'/single_player'}><span>
+Play
+</span></Link>
+        </div>
         <div>
-          <Chat />
+          <Chat users={this.props.users} />
         </div>
         </div>
         </div>

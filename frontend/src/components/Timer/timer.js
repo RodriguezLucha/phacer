@@ -13,7 +13,8 @@ class Timer extends React.Component {
           time: 0,
           start: 0,
           end: 0,
-          isOn: false
+          isOn: false,
+          handle: this.props.users.handle
         }
 
         this.startTimer = this.startTimer.bind(this)
@@ -25,7 +26,8 @@ class Timer extends React.Component {
         this.setState({
           time: this.state.time,
           start: Date.now() - this.state.time ,
-          isOn: true
+          isOn: true,
+          handle: this.props.users.handle
         })
         this.timer = setInterval(() => this.setState({
           time: Date.now() - this.state.start
@@ -57,16 +59,16 @@ class Timer extends React.Component {
    
       
     render() {
-      let start = (this.state.time == 0) ?
-        <button onClick={() => this.startTimer()}>Start</button>: null
+      let start = (this.state.time === 0) ?
+        <button onClick={this.startTimer}>Start</button>: null
 
       let stop = (this.state.isOn) ?
         <button onClick={this.stopTimer}>Stop</button>: null
 
-      let reset = (this.state.time != 0 && !this.state.isOn) ?
+      let reset = (this.state.time !== 0 && !this.state.isOn) ?
         <button onClick={this.resetTimer}>Reset</button>: null
       
-      let resume = (this.state.time != 0 && !this.state.isOn) ?
+      let resume = (this.state.time !== 0 && !this.state.isOn) ?
         <button onClick={this.startTimer}>resume</button>: null
 
       return (

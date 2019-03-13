@@ -2,17 +2,12 @@ import React from 'react';
 import './main_page.scss'
 
 class MainPage extends React.Component {
-
-  constructor(props){
-    super(props);
-  }
-
   render() {
     return (
       <>
           <div className="splash">
             <div className="splash_logo">
-              <img src='https://media.giphy.com/media/10mgrhuEWNasNO/giphy.gif'></img>
+              <img src='https://media.giphy.com/media/10mgrhuEWNasNO/giphy.gif' alt="splash logo"></img>
             </div>
             <div className="splash_svg">
               <svg width="100%" height="100%">

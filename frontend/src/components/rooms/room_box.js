@@ -3,11 +3,13 @@ import React from 'react';
 class RoomBox extends React.Component {
   render() {
     return (
-        <div>
+      <table>
+        <tbody>
             <tr>
               <td>{this.props.text}</td>
             </tr>
-        </div>
+        </tbody>
+        </table >
     );
   }
 }

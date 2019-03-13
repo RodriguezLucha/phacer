@@ -5,11 +5,10 @@ import {fetchUserTimers, recordTimer, fetchTimers} from '../../actions/timer_act
 
 
 const msp = (state, ownProps) => {
-    
     return({
-        end: ownProps.end 
-
-    })
+        end: ownProps.end,
+        users: state.users
+    });
 }
 
 const mdp = (dispatch) => {

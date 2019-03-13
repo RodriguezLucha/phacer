@@ -11,6 +11,12 @@
 
 }
 
+.row {
+	margin-right: 0;
+}
+
+
+
 .messages {
      display: flex;
      flex-direction: column;
@@ -43,6 +49,8 @@ section {
     }
 	}
 }
+
+
 
 .card-body{
     max-height: 30vh;
@@ -125,4 +133,9 @@ section {
 		border-bottom-right-radius: 10px;
 		-webkit-transform:translate(-30px, -2px);
 	}
+}
+
+.btn-primary{
+	background: rgb(24, 13, 129);
+	border-color: rgb(24, 13, 129);
 }

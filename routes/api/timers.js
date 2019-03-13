@@ -22,13 +22,14 @@ router.get('/user/:user_id', (req, res) => {
     );
 });
 
+//router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
 router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
-   console.log(req.body)
-    const newTimer = new Timer({
-      endTime: req.body.endTime,
-      user: req.user.id
-    });
-    newTimer.save().then(timer => res.json(timer))
+  console.log(req.body);
+  const newTimer = new Timer({
+    endTime: req.body.endTime,
+    handle: req.body.handle
+  });
+  newTimer.save().then(timer => res.json(timer));
 });
 
 module.exports = router;

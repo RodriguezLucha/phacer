@@ -7,21 +7,41 @@ class Chat extends React.Component {
         super(props);
 
         this.state = {
-            username: '',
+            username: this.props.users.handle,
             message: '',
-            messages: []
+            messages: [],
         };
 
-        this.socket = io('localhost:5000');
+
+
+        let url = `${window.location.hostname}:${window.location.port}`;
+        this.socket = io.connect(url);
 
         this.socket.on('RECEIVE_MESSAGE', function (data) {
+            data['timestamp'] = new Date().getTime();
             addMessage(data);
+            
+            //this.messages.scrollIntoView({block: 'end', behavior: 'smooth'});
+            
         });
 
         const addMessage = data => {
-            console.log(data);
             this.setState({ messages: [...this.state.messages, data] });
-            console.log(this.state.messages);
+            if(this.refs && this.state.messages){
+                
+                let messages = this.state.messages;
+                let lastMessage = messages[messages.length - 1];
+                
+                let lastTimestamp = lastMessage.timestamp;
+
+                if (this.refs[lastTimestamp]){
+                    this.refs[lastTimestamp].scrollIntoView({
+                        block: 'end',
+                        behavior: 'smooth'
+                    });
+                }
+
+            }
         };
 
         this.sendMessage = ev => {
@@ -31,9 +51,9 @@ class Chat extends React.Component {
                 message: this.state.message
             })
             this.setState({ message: '' });
-
         }
     }
+
     render() {
         return (
             <div className="chat-container">
@@ -46,8 +66,8 @@ class Chat extends React.Component {
                                 <div className="messages">
                                     {this.state.messages.map(message => {
                                         return (
-                                            <section id='chat-total'>
-                                                <div className="from-me">{message.author}: {message.message}</div>
+                                            <section key={`${message.author}:${message.message}:${message.timestamp}`} ref={message.timestamp} id='chat-total'>
+                                                <div className="from-me">{this.props.users.handle}: {message.message}</div>
                                             </section>
                                         )
                                     })}
@@ -55,8 +75,6 @@ class Chat extends React.Component {
 
                             </div>
                             <div className="card-footer">
-                                <input type="text" placeholder="Name" value={this.state.username} onChange={ev => this.setState({ username: ev.target.value })} className="form-control" />
-                                <br />
                                 <input type="text" placeholder="Message" className="form-control" value={this.state.message} onChange={ev => this.setState({ message: ev.target.value })} />
                                 <br />
                                 <button onClick={this.sendMessage} className="btn btn-primary form-control">Send</button>
