@@ -21,24 +21,15 @@ export default class SinglePlayer extends Component {
   }
 
   preload() {
-    //this.game.load.tilemap('map', 'game/map.json', null, Phaser.Tilemap.TILED_JSON);
     this.game.load.image('car', 'game/car.png');
-    this.game.load.image('sky', 'game/sunset.png');
     this.game.load.image('road', 'game/road.png');
-
     this.game.load.tilemap('map', 'game/collision_test.json', null, Phaser.Tilemap.TILED_JSON);
     this.game.load.image('ground_1x1', 'game/ground_1x1.png');
-    this.game.load.image('walls_1x2', 'game/walls_1x2.png');
-    this.game.load.image('tiles2', 'game/tiles2.png');
-
     this.game.load.image('fire1', 'game/fire1.png');
     this.game.load.image('fire2', 'game/fire2.png');
     this.game.load.image('fire3', 'game/fire3.png');
-    this.game.load.image('smoke', 'game/smoke-puff.png');
-
     this.game.load.audio('synth1', 'game/synth1.mp3');
     this.game.load.image('finish-line', 'game/finish-line.png'); //added as finish line
-    
   }
 
   create() {
@@ -69,22 +60,21 @@ export default class SinglePlayer extends Component {
 
     this.emitter.start(false, 3000, 5);
 
-
     this.game.physics.p2.convertTilemap(this.map, this.layer);
     
     this.cursors = this.game.input.keyboard.createCursorKeys();
-    this.ship = this.game.add.sprite(32, this.game.world.height - 150, 'car');
+    this.car = this.game.add.sprite(32, this.game.world.height - 150, 'car');
     this.finishline = this.game.add.sprite(1500, 0, 'finish-line'); //add finishline
-    this.game.camera.follow(this.ship);
+    this.game.camera.follow(this.car);
     
-    this.game.physics.p2.enable(this.ship);
+    this.game.physics.p2.enable(this.car);
 
     this.game.physics.p2.enable(this.finishline, false);
     this.finishline.body.static = true;
 
     let synth1 = this.game.add.audio('synth1');
     
-    this.ship.body.createBodyCallback(this.finishline, () => {
+    this.car.body.createBodyCallback(this.finishline, () => {
       if(this.that.props.stopTimer){
         this.that.props.stopTimer();
         this.that.props.history.push('/rooms');
@@ -101,24 +91,24 @@ export default class SinglePlayer extends Component {
   }
 
   update() {
-    let ship = this.ship;
+    let car = this.car;
     let cursors = this.cursors;
 
-    if (cursors.left.isDown) { ship.body.rotateLeft(100); }   //ship movement
-    else if (cursors.right.isDown) { ship.body.rotateRight(100); }
-    else { ship.body.setZeroRotation(); }
+    if (cursors.left.isDown) { car.body.rotateLeft(100); }   //car movement
+    else if (cursors.right.isDown) { car.body.rotateRight(100); }
+    else { car.body.setZeroRotation(); }
 
-    if (cursors.up.isDown) { ship.body.thrust(1000); }
+    if (cursors.up.isDown) { car.body.thrust(1000); }
     else {
-      if(ship.body.velocity.x > 0 || ship.body.velocity.y > 0){
-        ship.body.velocity.x = ship.body.velocity.x / 1.05;
-        ship.body.velocity.y = ship.body.velocity.y / 1.05;
+      if(car.body.velocity.x > 0 || car.body.velocity.y > 0){
+        car.body.velocity.x = car.body.velocity.x / 1.05;
+        car.body.velocity.y = car.body.velocity.y / 1.05;
       }
     }
-    if (cursors.down.isDown) { ship.body.thrust(-400); }
+    if (cursors.down.isDown) { car.body.thrust(-400); }
 
-    let px = ship.body.velocity.x;
-    let py = ship.body.velocity.y;
+    let px = car.body.velocity.x;
+    let py = car.body.velocity.y;
 
     px *= -1;
     py *= -1;
@@ -126,8 +116,8 @@ export default class SinglePlayer extends Component {
     this.emitter.minParticleSpeed.set(px, py);
     this.emitter.maxParticleSpeed.set(px, py);
 
-    this.emitter.emitX = ship.x;
-    this.emitter.emitY = ship.y;
+    this.emitter.emitX = car.x;
+    this.emitter.emitY = car.y;
 
   }
 

@@ -47,20 +47,17 @@ class Room extends React.Component {
 
   render() {
     let timerItems = this.props.timers.sort((a, b) => {
-      console.log(a)
       const l = a.intTime;
       const r = b.intTime;
       return l > r ? 1: l < r ? -1 :0;
     }).slice(0, 10).map((timer, idx) => {
-      console.log(timer);
       return(
-        <tr>
+        <tr key = {timer._id}>
           <td id="td">
             {idx+1}
           </td>
           <TimerItems  timer={timer}/> 
         </tr>
-
       )
     })
 

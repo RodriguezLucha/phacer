@@ -4,11 +4,6 @@ import '../rooms/rooms.scss'
 
 
 class TimerItems extends React.Component {
-    constructor(props){
-        super(props)
-    }
-
-
     render(){
         return (
             <>
@@ -21,7 +16,6 @@ class TimerItems extends React.Component {
             </>
         )
     }
-
 }
 
 export default TimerItems;

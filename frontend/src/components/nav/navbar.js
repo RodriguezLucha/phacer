@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import './navbar.scss'
-import Timer from '../Timer/timer'
 
 class NavBar extends React.Component {
   constructor(props) {
