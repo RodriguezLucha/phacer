@@ -2,7 +2,6 @@ import React from 'react';
 import prettyMs from 'pretty-ms';
 import SinglePlayerContainer from '../single_player/single_player_container';
 import './timer.scss';
-import ScoreContainer from '../Timer/scores_container';
 
 class Timer extends React.Component {
     constructor(props){
@@ -45,13 +44,11 @@ class Timer extends React.Component {
       this.props.recordTimer(this.state) 
       // console.log(this.state.end)
       clearInterval(this.timer)
-      console.log("stop")
 
     }
 
     resetTimer() {
       this.setState({time: 0})
-      console.log("reset")
     }
 
     componentDidMount() {
@@ -77,7 +74,6 @@ class Timer extends React.Component {
         <div>
           <h3>timer: {prettyMs(this.state.time)}</h3>
           <SinglePlayerContainer stopTimer={this.stopTimer} startTimer={this.startTimer} end={this.state.end} recordTimer={this.props.recordTimer} fetchTimers ={this.props.fetchTimers}/>
-          {/* <ScoreContainer end={this.state.end}/> */}
         </div>
       );
     }
