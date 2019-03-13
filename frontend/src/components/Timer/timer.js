@@ -32,7 +32,6 @@ class Timer extends React.Component {
         this.timer = setInterval(() => this.setState({
           time: Date.now() - this.state.start
         }),1)
-        console.log("start")
     }
 
     stopTimer() {
@@ -42,7 +41,6 @@ class Timer extends React.Component {
       this.setState({endTime: prettyMs(this.state.time)})
       this.setState({intTime: (this.state.time)})
       this.props.recordTimer(this.state) 
-      // console.log(this.state.end)
       clearInterval(this.timer)
 
     }
@@ -58,18 +56,6 @@ class Timer extends React.Component {
    
       
     render() {
-      let start = (this.state.time === 0) ?
-        <button onClick={this.startTimer}>Start</button>: null
-
-      let stop = (this.state.isOn) ?
-        <button onClick={this.stopTimer}>Stop</button>: null
-
-      let reset = (this.state.time !== 0 && !this.state.isOn) ?
-        <button onClick={this.resetTimer}>Reset</button>: null
-      
-      let resume = (this.state.time !== 0 && !this.state.isOn) ?
-        <button onClick={this.startTimer}>resume</button>: null
-
       return (
         <div>
           <h3>timer: {prettyMs(this.state.time)}</h3>
