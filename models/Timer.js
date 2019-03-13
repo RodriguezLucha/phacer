@@ -10,6 +10,10 @@ const TimerSchema = new Schema({
     type: String,
     required: true
   },
+  intTime: {
+    type: Date,
+    required: false
+  },
   handle: {
     type: String,
     required: false
