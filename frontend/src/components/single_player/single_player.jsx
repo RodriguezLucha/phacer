@@ -28,11 +28,15 @@ export default class SinglePlayer extends Component {
     this.game.load.image('fire2', 'game/fire2.png');
     this.game.load.image('fire3', 'game/fire3.png');
     this.game.load.image('smoke', 'game/smoke-puff.png');
+
+    this.game.load.audio('synth1', 'game/synth1.mp3');
   }
 
   create() {
     this.game.physics.startSystem(Phaser.Physics.P2JS);
     this.game.stage.disableVisibilityChange = true;
+
+    this.synth1 = this.game.add.audio('synth1');
 
     this.map = this.game.add.tilemap('map');
 
@@ -63,7 +67,17 @@ export default class SinglePlayer extends Component {
     this.ship = this.game.add.sprite(32, this.game.world.height - 150, 'car');
     this.game.camera.follow(this.ship);
     this.game.physics.p2.enable(this.ship);
+
+    let synth1 = this.game.add.audio('synth1')
+
+    let sounds = synth1;
+
+    this.game.sound.setDecodedCallback(sounds, () => {
+      this.synth1.loopFull(0.6);
+    }, this);
   }
+
+  start
   update() {
     let ship = this.ship;
     let cursors = this.cursors;
@@ -97,6 +111,10 @@ export default class SinglePlayer extends Component {
 
 shouldComponentUpdate(nextProps, nextState) {
   return false;
+}
+
+componentWillUnmount() {
+  this.game.destroy();
 }
 
 
