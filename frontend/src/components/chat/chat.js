@@ -32,15 +32,16 @@ class Chat extends React.Component {
                 let messages = this.state.messages;
                 let lastMessage = messages[messages.length - 1];
                 
-                let lastTimestamp = lastMessage.timestamp;
-
-                if (this.refs[lastTimestamp]){
-                    this.refs[lastTimestamp].scrollIntoView({
-                        block: 'end',
-                        behavior: 'smooth'
-                    });
+                if (lastMessage.timestamp){
+                    let lastTimestamp = lastMessage.timestamp;
+    
+                    if (this.refs[lastTimestamp]){
+                        this.refs[lastTimestamp].scrollIntoView({
+                            block: 'end',
+                            behavior: 'smooth'
+                        });
+                    }
                 }
-
             }
         };
 
