@@ -47,9 +47,10 @@ class Room extends React.Component {
     }).map(timer => {
       console.log(timer);
       return(
-        <div key={timer.id}>
+        <tr>
           <TimerItems  timer={timer}/> 
-        </div>
+        </tr>
+
       )
     })
 
@@ -59,21 +60,14 @@ class Room extends React.Component {
       return (
         <div className = "room-index-page">
           <NavBarContainer/>
-          <h1>
-            {/* <div>
-            <TimerItems  timer={this.props.recent.endTime}/> 
-            </div> */}
-            {timerItems}
-          </h1>
           <div className = "room-index-page-2">
           <div className = 'room-index-table'>
           <div className = "tbl-header">
             <table cellPadding="0" cellSpacing="0" border="0">
               <thead>
                 <tr>
-                  <th id='th'>ROOMS</th>
-                  <th id='th'>HOST</th>
-                  <th id='th'>DESCRIPTION</th>
+                  <th id='th'>USERNAME</th>
+                  <th id='th'>HI-SCORE</th>
                 </tr>
               </thead>
             </table>
@@ -81,23 +75,14 @@ class Room extends React.Component {
           <div className="tbl-content">
             <table cellPadding="0" cellSpacing="0" border="0">
               <tbody>
-                <tr> 
-                  <td id='td'>
-                  {this.state.rooms.map(room => (
-                    <RoomBox key={room._id} text={room.text} />
-                  ))}
-                  </td>
-                  <td id='td'>Ari </td>
-                  <td id='td'> Testing a Room </td>
-                </tr>
+                  {timerItems}
           </tbody>
           </table>
             </div>
         </div >
         <div className="start-wrapper">
-              <Link className="start-button" to={'/single_player'}><span>
-Play
-</span></Link>
+              <Link className="start-button" to={'/single_player'}><span>Play</span></Link>
+              <button className="log-out-btn" onClick={this.logoutUser}><span>Logout</span></button>
         </div>
         <div>
           <Chat users={this.props.users} />
