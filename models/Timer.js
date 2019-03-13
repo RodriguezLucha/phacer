@@ -6,9 +6,13 @@ const TimerSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'users'
   },
-  text: {
-    type: Time,
+  endTime: {
+    type: String,
     required: true
+  },
+  handle: {
+    type: String,
+    required: false
   },
   date: {
     type: Date,

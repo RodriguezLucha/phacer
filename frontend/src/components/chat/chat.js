@@ -31,6 +31,7 @@ class Chat extends React.Component {
                 
                 let messages = this.state.messages;
                 let lastMessage = messages[messages.length - 1];
+                
                 let lastTimestamp = lastMessage.timestamp;
 
                 if (this.refs[lastTimestamp]){

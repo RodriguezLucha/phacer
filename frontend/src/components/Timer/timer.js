@@ -1,14 +1,20 @@
 import React from 'react';
 import prettyMs from 'pretty-ms';
+import SinglePlayerContainer from '../single_player/single_player_container';
+import './timer.scss';
+import ScoreContainer from '../Timer/scores_container';
 
 class Timer extends React.Component {
     constructor(props){
+     
         super(props)
 
         this.state = {
           time: 0,
           start: 0,
-          isOn: false
+          end: 0,
+          isOn: false,
+          handle: this.props.users.handle
         }
 
         this.startTimer = this.startTimer.bind(this)
@@ -20,7 +26,8 @@ class Timer extends React.Component {
         this.setState({
           time: this.state.time,
           start: Date.now() - this.state.time ,
-          isOn: true
+          isOn: true,
+          handle: this.props.users.handle
         })
         this.timer = setInterval(() => this.setState({
           time: Date.now() - this.state.start
@@ -29,9 +36,15 @@ class Timer extends React.Component {
     }
 
     stopTimer() {
+      if (this.stop) return ;
+      this.stop = true;
       this.setState({isOn: false})
+      this.setState({endTime: prettyMs(this.state.time)})
+      this.props.recordTimer(this.state) 
+      // console.log(this.state.end)
       clearInterval(this.timer)
       console.log("stop")
+
     }
 
     resetTimer() {
@@ -39,6 +52,11 @@ class Timer extends React.Component {
       console.log("reset")
     }
 
+    componentDidMount() {
+      this.startTimer()
+    }
+
+   
       
     render() {
       let start = (this.state.time === 0) ?
@@ -56,10 +74,8 @@ class Timer extends React.Component {
       return (
         <div>
           <h3>timer: {prettyMs(this.state.time)}</h3>
-          {start}
-          {resume}
-          {stop}
-          {reset}
+          <SinglePlayerContainer stopTimer={this.stopTimer} startTimer={this.startTimer} end={this.state.end} recordTimer={this.props.recordTimer} fetchTimers ={this.props.fetchTimers}/>
+          {/* <ScoreContainer end={this.state.end}/> */}
         </div>
       );
     }

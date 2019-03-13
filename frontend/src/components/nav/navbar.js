@@ -41,7 +41,7 @@ class NavBar extends React.Component {
         <div>
             <h1 id="nav-title">Phacer</h1>
             { this.getLinks() }
-            <Timer/>
+            
         </div>
       );
   }

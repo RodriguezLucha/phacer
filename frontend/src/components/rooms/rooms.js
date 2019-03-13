@@ -4,6 +4,7 @@ import RoomBox from './room_box';
 import './rooms.scss'
 import Chat from '../chat/chat'
 import NavBarContainer from '../nav/navbar_container';
+import TimerItems from '../Timer/timer_items';
 import { Link } from 'react-router-dom'
 
 
@@ -16,7 +17,19 @@ class Room extends React.Component {
     }
   }
 
+  componentDidMount(){
+
+  }
+  
+  componentDidUpdate(prevProps){
+    if (prevProps.timers.length !== this.props.timers.length){
+      this.props.fetchTimers();
+    }
+  }
+  
   componentWillMount() {
+    // debugger
+    this.props.fetchTimers();
     this.props.fetchRooms();
     this.props.getCurrentUserHandle();
   }
@@ -26,12 +39,27 @@ class Room extends React.Component {
   }
 
   render() {
+    let timerItems = this.props.timers.map(timer => {
+      console.log(timer);
+      return(
+        <div key={timer.id}>
+          <TimerItems  timer={timer}/> 
+        </div>
+      )
+    })
+
     if (this.state.rooms.length === 0) {
       return (<div>There are no Rooms</div>)
     } else {
       return (
         <div className = "room-index-page">
           <NavBarContainer/>
+          <h1>
+            {/* <div>
+            <TimerItems  timer={this.props.recent.endTime}/> 
+            </div> */}
+            {timerItems}
+          </h1>
           <div className = "room-index-page-2">
           <div className = 'room-index-table'>
           <div className = "tbl-header">

@@ -2,16 +2,23 @@ import React, { Component } from 'react'
 import Phaser from 'phaser-ce';
 import './single_player.scss'
 export default class SinglePlayer extends Component {
+  
   componentDidMount() {
+
+    let that = this;
 
     this.game = new Phaser.Game(800,700, Phaser.CANVAS, 'phaser-container', {
       preload: this.preload,
       create: this.create,
-      update: this.update
+      update: this.update,
+      that
     });
 
   }
 
+  componentWillUnmount(){
+    this.game.destroy()
+  }
 
   preload() {
     //this.game.load.tilemap('map', 'game/map.json', null, Phaser.Tilemap.TILED_JSON);
@@ -30,6 +37,8 @@ export default class SinglePlayer extends Component {
     this.game.load.image('smoke', 'game/smoke-puff.png');
 
     this.game.load.audio('synth1', 'game/synth1.mp3');
+    this.game.load.image('finish-line', 'game/finish-line.png'); //added as finish line
+    
   }
 
   create() {
@@ -40,13 +49,13 @@ export default class SinglePlayer extends Component {
 
     this.map = this.game.add.tilemap('map');
 
+    
     this.map.addTilesetImage('ground_1x1');
-
     this.layer = this.map.createLayer('Tile Layer 1');
-
+    
     this.layer.resizeWorld();
 
-    this.map.setCollisionBetween(1, 12);
+    this.map.setCollisionBetween(1, 1);
 
 
 
@@ -62,22 +71,35 @@ export default class SinglePlayer extends Component {
 
 
     this.game.physics.p2.convertTilemap(this.map, this.layer);
-
+    
     this.cursors = this.game.input.keyboard.createCursorKeys();
     this.ship = this.game.add.sprite(32, this.game.world.height - 150, 'car');
+    this.finishline = this.game.add.sprite(1500, 0, 'finish-line'); //add finishline
     this.game.camera.follow(this.ship);
+    
     this.game.physics.p2.enable(this.ship);
 
-    let synth1 = this.game.add.audio('synth1')
+    this.game.physics.p2.enable(this.finishline, false);
+    this.finishline.body.static = true;
+
+    let synth1 = this.game.add.audio('synth1');
+    
+    this.ship.body.createBodyCallback(this.finishline, () => {
+      if(this.that.props.stopTimer){
+        this.that.props.stopTimer();
+        this.that.props.history.push('/rooms');
+      }
+    }, this);
+    this.game.physics.p2.setImpactEvents(true);
 
     let sounds = synth1;
 
     this.game.sound.setDecodedCallback(sounds, () => {
       this.synth1.loopFull(0.6);
     }, this);
+
   }
 
-  start
   update() {
     let ship = this.ship;
     let cursors = this.cursors;
@@ -109,24 +131,20 @@ export default class SinglePlayer extends Component {
 
   }
 
-shouldComponentUpdate(nextProps, nextState) {
-  return false;
-}
-
-componentWillUnmount() {
-  this.game.destroy();
-}
+  shouldComponentUpdate(nextProps, nextState) {
+    return false;
+  }
 
 
-render() {
-  return (
-    <div className="bg">
-      <div className="phaserContainer" id="phaser-container">
-      
+  render() {
+    return (
+
+      <div className="bg">
+        <div className="phaserContainer" id="phaser-container">
+        </div>
       </div>
-    </div>
-  )
-}
+    )
+  }
 };
 
 
