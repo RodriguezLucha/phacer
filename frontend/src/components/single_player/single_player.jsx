@@ -26,6 +26,9 @@ export default class SinglePlayer extends Component {
 
   }
 
+  componentWillUnmount(){
+    this.game.destroy()
+  }
 
   preload() {
     //this.game.load.tilemap('map', 'game/map.json', null, Phaser.Tilemap.TILED_JSON);

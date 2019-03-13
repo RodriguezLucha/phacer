@@ -53,6 +53,8 @@ class Timer extends React.Component {
     componentDidMount() {
       this.startTimer()
     }
+
+   
       
     render() {
       let start = (this.state.time == 0) ?
