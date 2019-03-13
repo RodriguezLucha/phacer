@@ -1,13 +1,18 @@
 import React from 'react';
 import prettyMs from 'pretty-ms';
+import SinglePlayerContainer from '../single_player/single_player_container';
+import './timer.scss';
+import ScoreContainer from '../Timer/scores_container';
 
 class Timer extends React.Component {
     constructor(props){
+     
         super(props)
 
         this.state = {
           time: 0,
           start: 0,
+          end: 0,
           isOn: false
         }
 
@@ -29,9 +34,15 @@ class Timer extends React.Component {
     }
 
     stopTimer() {
+      if (this.stop) return ;
+      this.stop = true;
       this.setState({isOn: false})
+      this.setState({endTime: prettyMs(this.state.time)})
+      this.props.recordTimer(this.state) 
+      // console.log(this.state.end)
       clearInterval(this.timer)
       console.log("stop")
+
     }
 
     resetTimer() {
@@ -39,10 +50,13 @@ class Timer extends React.Component {
       console.log("reset")
     }
 
+    componentDidMount() {
+      this.startTimer()
+    }
       
     render() {
       let start = (this.state.time == 0) ?
-        <button onClick={this.startTimer}>Start</button>: null
+        <button onClick={() => this.startTimer()}>Start</button>: null
 
       let stop = (this.state.isOn) ?
         <button onClick={this.stopTimer}>Stop</button>: null
@@ -56,10 +70,8 @@ class Timer extends React.Component {
       return (
         <div>
           <h3>timer: {prettyMs(this.state.time)}</h3>
-          {start}
-          {resume}
-          {stop}
-          {reset}
+          <SinglePlayerContainer stopTimer={this.stopTimer} startTimer={this.startTimer} end={this.state.end} recordTimer={this.props.recordTimer} fetchTimers ={this.props.fetchTimers}/>
+          {/* <ScoreContainer end={this.state.end}/> */}
         </div>
       );
     }

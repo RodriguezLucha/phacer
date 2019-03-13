@@ -1,8 +1,13 @@
-import { getUserTimers, postTimer } from '../util/timer_api_util';
+import { getTimers, getUserTimers, postTimer } from '../util/timer_api_util';
 
+export const RECEIVE_TIMERS = "RECEIVE_TIMERS";
 export const RECEIVE_USER_TIMERS = "RECEIVE_USER_TIMERS";
 export const RECEIVE_NEW_TIMER = "RECEIVE_NEW_TIMER";
 
+export const receiveTimers = timers => ({
+  type: RECEIVE_TIMERS,
+  timers
+});
 
 export const receiveUserTimers = timers => ({
   type: RECEIVE_USER_TIMERS,
@@ -13,6 +18,12 @@ export const receiveNewTimer = timer => ({
   type: RECEIVE_NEW_TIMER,
   timer
 });
+
+export const fetchTimers = () => dispatch => (
+  getTimers()
+    .then(timers => dispatch(receiveTimers(timers)))
+    .catch(err => console.log(err))
+);
 
 export const fetchUserTimers = id => dispatch => (
   getUserTimers(id)
