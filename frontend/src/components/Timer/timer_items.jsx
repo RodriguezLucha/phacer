@@ -1,19 +1,19 @@
 import React from 'react';
+import '../rooms/rooms.scss'
 
 
 
 class TimerItems extends React.Component {
     render(){
         return (
-            <div className="score_row">
-                <h1 id="name">
+            <>
+                <td id='td'>
                     {this.props.timer.handle}
-                </h1>
-                <h1 id="title">
+                </td >
+            <td id='td'>
                    {this.props.timer.endTime}
-                </h1>
-
-            </div>
+            </td >
+            </>
         )
     }
 }

@@ -15,6 +15,7 @@ class Room extends React.Component {
     this.state = {
       rooms: []
     }
+    this.logoutUser = this.logoutUser.bind(this);
   }
 
   componentDidMount(){
@@ -38,18 +39,28 @@ class Room extends React.Component {
     this.setState({ rooms: newState.rooms });
   }
 
+  logoutUser(e) {
+    e.preventDefault();
+    this.props.logout();
+    this.props.history.push('/');
+  }
+
   render() {
     let timerItems = this.props.timers.sort((a, b) => {
       const l = a.intTime;
       const r = b.intTime;
-      return l < r ? 1: l > r ? -1 :0;
-    }).map(timer => {
+      return l > r ? 1: l < r ? -1 :0;
+    }).slice(0, 10).map((timer, idx) => {
       return(
-        <div key = {timer._id}>
+        <tr key = {timer._id}>
+          <td id="td">
+            {idx+1}
+          </td>
           <TimerItems  timer={timer}/> 
-        </div>
+        </tr>
       )
     })
+
 
     if (this.state.rooms.length === 0) {
       return (<div>There are no Rooms</div>)
@@ -57,21 +68,15 @@ class Room extends React.Component {
       return (
         <div className = "room-index-page">
           <NavBarContainer/>
-          <h1>
-            {/* <div>
-            <TimerItems  timer={this.props.recent.endTime}/> 
-            </div> */}
-            {timerItems}
-          </h1>
           <div className = "room-index-page-2">
           <div className = 'room-index-table'>
           <div className = "tbl-header">
             <table cellPadding="0" cellSpacing="0" border="0">
               <thead>
                 <tr>
-                  <th id='th'>ROOMS</th>
-                  <th id='th'>HOST</th>
-                  <th id='th'>DESCRIPTION</th>
+                  <th id='th'>RANK</th>
+                  <th id='th'>USERNAME</th>
+                  <th id='th'>HI-SCORE</th>
                 </tr>
               </thead>
             </table>
@@ -79,23 +84,14 @@ class Room extends React.Component {
           <div className="tbl-content">
             <table cellPadding="0" cellSpacing="0" border="0">
               <tbody>
-                <tr> 
-                  <td id='td'>
-                  {this.state.rooms.map(room => (
-                    <RoomBox key={room._id} text={room.text} />
-                  ))}
-                  </td>
-                  <td id='td'>Ari </td>
-                  <td id='td'> Testing a Room </td>
-                </tr>
+                  {timerItems}
           </tbody>
           </table>
             </div>
         </div >
         <div className="start-wrapper">
-              <Link className="start-button" to={'/single_player'}><span>
-Play
-</span></Link>
+              <Link className="start-button" to={'/single_player'}><span>Play</span></Link>
+              <button className="log-out-btn" onClick={this.logoutUser}><span>Logout</span></button>
         </div>
         <div>
           <Chat users={this.props.users} />

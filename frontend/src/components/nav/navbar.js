@@ -22,7 +22,7 @@ class NavBar extends React.Component {
                 <Link to={'/rooms'}>All Rooms</Link>
                 <Link to={'/profile'}>Profile</Link>
                 <Link to={'/new_room'}>Create a Room</Link>
-            <button className="log-out-btn" onClick={this.logoutUser}><span>Logout</span></button>
+            
             </div>
         );
       } else {
@@ -39,7 +39,7 @@ class NavBar extends React.Component {
       return (
         <div>
             <h1 id="nav-title">Phacer</h1>
-            { this.getLinks() }
+            {/* { this.getLinks() } */}
             
         </div>
       );
