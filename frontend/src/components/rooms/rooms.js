@@ -18,6 +18,7 @@ class Room extends React.Component {
 
   componentWillMount() {
     this.props.fetchRooms();
+    this.props.getCurrentUserHandle();
   }
 
   componentWillReceiveProps(newState) {
@@ -66,7 +67,7 @@ Play
 </span></Link>
         </div>
         <div>
-          <Chat />
+          <Chat users={this.props.users} />
         </div>
         </div>
         </div>
