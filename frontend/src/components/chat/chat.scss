@@ -2,6 +2,9 @@
 //     height: 300px;
 // }
 
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300');
+
+
 .card{
     min-width: 25vw;
     min-height: 50vh;
@@ -24,7 +27,7 @@
 }
 
 .card-title{
-	font-family: 'ZCOOL QingKe HuangYou', cursive;
+	font-family: 'Montserrat', sans-serif;
     font-size: 26px;
     color: #FFD662;
 	max-width: 25vw;
