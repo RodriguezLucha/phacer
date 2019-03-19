@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import RoomBox from './room_box';
 import './rooms.scss'
 import Chat from '../chat/chat'
 import NavBarContainer from '../nav/navbar_container';
