@@ -89,8 +89,15 @@ class Room extends React.Component {
             </div>
         </div >
         <div className="start-wrapper">
+              <div>
               <Link className="start-button" to={'/single_player'}><span>Play</span></Link>
+              </div>
+            <div>
               <button className="log-out-btn" onClick={this.logoutUser}><span>Logout</span></button>
+          </div>
+        <div>
+              <img className="instructions" src="instruct-3.png" />
+              </div >
         </div>
         <div>
           <Chat users={this.props.users} />
