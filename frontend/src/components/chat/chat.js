@@ -71,8 +71,6 @@ class Chat extends React.Component {
                                 <div className="messages">
                                     {   
                                         this.state.messages.map(message => {
-                                            let previous_message = 
-                                        debugger
                                         return (
                                             <section key={`${message.author}:${message.message}:${message.timestamp}`} ref={message.timestamp} id='chat-total'>
                                                 <div className="from-me">{message.author}: {message.message}</div>
