@@ -17,16 +17,16 @@ class Room extends React.Component {
     this.logoutUser = this.logoutUser.bind(this);
   }
 
-  componentDidMount(){
+  componentDidMount() {
 
   }
-  
-  componentDidUpdate(prevProps){
-    if (prevProps.timers.length !== this.props.timers.length){
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.timers.length !== this.props.timers.length) {
       this.props.fetchTimers();
     }
   }
-  
+
   componentWillMount() {
     // debugger
     this.props.fetchTimers();
@@ -48,14 +48,14 @@ class Room extends React.Component {
     let timerItems = this.props.timers.sort((a, b) => {
       const l = a.intTime;
       const r = b.intTime;
-      return l > r ? 1: l < r ? -1 :0;
+      return l > r ? 1 : l < r ? -1 : 0;
     }).slice(0, 10).map((timer, idx) => {
-      return(
-        <tr key = {timer._id}>
+      return (
+        <tr key={timer._id}>
           <td id="td">
-            {idx+1}
+            {idx + 1}
           </td>
-          <TimerItems  timer={timer}/> 
+          <TimerItems timer={timer} />
         </tr>
       )
     })
@@ -65,37 +65,50 @@ class Room extends React.Component {
       return (<div>There are no Rooms</div>)
     } else {
       return (
-        <div className = "room-index-page">
-          <NavBarContainer/>
-          <div className = "room-index-page-2">
-          <div className = 'room-index-table'>
-          <div className = "tbl-header">
-            <table cellPadding="0" cellSpacing="0" border="0">
-              <thead>
-                <tr>
-                  <th id='th'>RANK</th>
-                  <th id='th'>USERNAME</th>
-                  <th id='th'>HI-SCORE</th>
-                </tr>
-              </thead>
-            </table>
-          </div>
-          <div className="tbl-content">
-            <table cellPadding="0" cellSpacing="0" border="0">
-              <tbody>
-                  {timerItems}
-          </tbody>
-          </table>
+        <div className="room-index-page">
+          <NavBarContainer />
+          <div className="room-index-page-2">
+            <div className='room-index-table'>
+              <div className="tbl-header">
+                <table cellPadding="0" cellSpacing="0" border="0">
+                  <thead>
+                    <tr>
+                      <th id='th'>RANK</th>
+                      <th id='th'>USERNAME</th>
+                      <th id='th'>HI-SCORE</th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+              <div className="tbl-content">
+                <table cellPadding="0" cellSpacing="0" border="0">
+                  <tbody>
+                    {timerItems}
+                  </tbody>
+                </table>
+              </div>
+            </div >
+            <div className="start-wrapper">
+              <div>
+                <Link className="start-button" to={'/single_player'}><span>Play</span></Link>
+              </div>
+              <div>
+                <button className="log-out-btn" onClick={this.logoutUser}><span>Logout</span></button>
+              </div>
+              <div className="instructions">
+                <h3 className="instruct-text"> HOW TO PLAY</h3> <br></br>
+                <img id="arrow_keys" src="instruct-3-1.png" />
+                <div>
+
+                  <span className="instruct-text"> TURN </span> <span className="instruct-text">  ACCEL</span>
+
+                </div>
+              </div >
             </div>
-        </div >
-        <div className="start-wrapper">
-              <Link className="start-button" to={'/single_player'}><span>Play</span></Link>
-              <button className="log-out-btn" onClick={this.logoutUser}><span>Logout</span></button>
-        </div>
-        <div>
-          <Chat users={this.props.users} />
-        </div>
-        </div>
+            <div>
+              <Chat users={this.props.users} />
+            </div>
+          </div>
         </div>
       );
     }
