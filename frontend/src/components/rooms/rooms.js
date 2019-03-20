@@ -12,7 +12,8 @@ class Room extends React.Component {
     super(props);
 
     this.state = {
-      rooms: []
+      rooms: [],
+      users: props.users
     }
     this.logoutUser = this.logoutUser.bind(this);
   }
@@ -25,6 +26,9 @@ class Room extends React.Component {
     if (prevProps.timers.length !== this.props.timers.length) {
       this.props.fetchTimers();
     }
+    if (!prevProps.users.handle) {
+      this.props.getCurrentUserHandle();
+    }
   }
 
   componentWillMount() {
@@ -36,6 +40,7 @@ class Room extends React.Component {
 
   componentWillReceiveProps(newState) {
     this.setState({ rooms: newState.rooms });
+    this.setState({ users: newState.users });
   }
 
   logoutUser(e) {
