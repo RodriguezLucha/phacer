@@ -11,7 +11,6 @@ class Profile extends React.Component {
     }
     
     componentWillMount() {
-        console.log(this.props.currentUser.id)
         this.props.fetchUserRooms(this.props.currentUser.id);
     }
 

@@ -4,6 +4,7 @@ import './chat.scss'
 
 class Chat extends React.Component {
     constructor(props) {
+        
         super(props);
 
         this.state = {
@@ -11,18 +12,12 @@ class Chat extends React.Component {
             message: '',
             messages: [],
         };
-
-
-
         let url = `${window.location.hostname}:${window.location.port}`;
         this.socket = io.connect(url);
 
         this.socket.on('RECEIVE_MESSAGE', function (data) {
             data['timestamp'] = new Date().getTime();
             addMessage(data);
-            
-            //this.messages.scrollIntoView({block: 'end', behavior: 'smooth'});
-            
         });
 
         const addMessage = data => {
@@ -55,6 +50,11 @@ class Chat extends React.Component {
         }
     }
 
+    componentWillReceiveProps(newState){
+        this.setState({username: this.props.users.handle});
+    }
+
+
     render() {
         return (
             <div className="chat-container">
@@ -68,7 +68,7 @@ class Chat extends React.Component {
                                     {this.state.messages.map(message => {
                                         return (
                                             <section key={`${message.author}:${message.message}:${message.timestamp}`} ref={message.timestamp} id='chat-total'>
-                                                <div className="from-me">{this.props.users.handle}: {message.message}</div>
+                                                <div className="from-me">{message.author}: {message.message}</div>
                                             </section>
                                         )
                                     })}
