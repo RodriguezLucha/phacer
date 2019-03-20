@@ -148,3 +148,10 @@ section {
 	background: rgb(24, 13, 129);
 	border-color: rgb(24, 13, 129);
 }
+
+.btn-primary:focus {
+	outline: none;
+	box-shadow: none;
+	background: rgb(24, 13, 129);
+	border-color: rgb(24, 13, 129);
+}
