@@ -17,7 +17,8 @@
 
 * User authentication. Sign up, Log in, Log out, demo user.
 
-
+![Searching]
+(https://github.com/RodriguezLucha/phacer/blob/master/screenshots/game.gif)
 
 * Timed race to finish line
 
