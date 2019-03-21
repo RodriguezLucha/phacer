@@ -22,6 +22,7 @@
 * Timed race to finish line
 
 
+![png](https://github.com/RodriguezLucha/phacer/blob/master/screenshots/scores.png)
 
 * Recording of top scores
 
