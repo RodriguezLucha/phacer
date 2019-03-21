@@ -59,7 +59,7 @@ class Timer extends React.Component {
       return (
         <>
         <div className="total">
-            <h3 className='game-timer'><i class="fas fa-stopwatch"></i>
+            <h3 className='game-timer'><i className="fas fa-stopwatch"></i>
 
  {prettyMs(this.state.time)}</h3>
           <SinglePlayerContainer stopTimer={this.stopTimer} startTimer={this.startTimer} end={this.state.end} recordTimer={this.props.recordTimer} fetchTimers ={this.props.fetchTimers}/>
