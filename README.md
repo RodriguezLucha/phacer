@@ -11,7 +11,9 @@
 
 * React & Redux (frontend)
 * Node & Express (backend)
-* Phaser JS (gaming engine)
+* [Phaser](https://phaser.io/) JS (gaming engine)
+
+
 
 ## Key features
 ![gif](https://github.com/RodriguezLucha/phacer/blob/master/screenshots/game.gif)
