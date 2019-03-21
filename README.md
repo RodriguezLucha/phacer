@@ -17,6 +17,8 @@
 
 * User authentication. Sign up, Log in, Log out, demo user.
 
+
+
 * Timed race to finish line
 
 * Recording of top scores
