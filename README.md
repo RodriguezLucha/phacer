@@ -14,7 +14,11 @@
 * Phaser JS (gaming engine)
 
 ## Key features
+![gif]
 (https://github.com/RodriguezLucha/phacer/blob/master/screenshots/game.gif)
+
+testtestest
+
 
 * User authentication. Sign up, Log in, Log out, demo user.
 
