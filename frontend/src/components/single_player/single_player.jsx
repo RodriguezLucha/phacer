@@ -15,9 +15,9 @@ export default class SinglePlayer extends Component {
     });
 
   }
-
+  
   componentWillUnmount(){
-    this.game.destroy()
+    this.game.pendingDestroy = true;
   }
 
   preload() {
