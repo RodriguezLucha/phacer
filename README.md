@@ -14,8 +14,7 @@
 * Phaser JS (gaming engine)
 
 ## Key features
-![gif]
-(https://github.com/RodriguezLucha/phacer/blob/master/screenshots/game.gif)
+![gif](https://github.com/RodriguezLucha/phacer/blob/master/screenshots/game.gif)
 
 testtestest
 
