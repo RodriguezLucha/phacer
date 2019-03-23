@@ -40,7 +40,7 @@ class Timer extends React.Component {
       this.setState({isOn: false})
       this.setState({endTime: prettyMs(this.state.time)})
       this.setState({intTime: (this.state.time)})
-      this.props.recordTimer(this.state) 
+      this.props.recordTimer(this.state, this.props.currentUser.id);
       clearInterval(this.timer)
 
     }

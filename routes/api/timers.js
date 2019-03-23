@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
-
+const CryptoJS = require('crypto-js');
 const Timer = require('../../models/Timer');
 
 router.get('/', (req, res) => {
@@ -22,15 +22,18 @@ router.get('/user/:user_id', (req, res) => {
     );
 });
 
-//router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
 router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
-  console.log(req.body);
+
+  let decrypted = CryptoJS.AES.decrypt(req.body.encrypted, req.user.id);
+  let str = decrypted.toString(CryptoJS.enc.Utf8);
+  let decryptedBody = JSON.parse(str);
+
   const newTimer = new Timer({
-    endTime: req.body.endTime,
-    intTime: req.body.intTime,
-    handle: req.body.handle
+    endTime: decryptedBody.endTime,
+    intTime: decryptedBody.intTime,
+    handle: decryptedBody.handle
   });
-  newTimer.save().then(timer => res.json(timer));
+  newTimer.save().then(timer => res.json({result: "Saved."}));
 });
 
 module.exports = router;

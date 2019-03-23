@@ -7,7 +7,8 @@ import {fetchUserTimers, recordTimer, fetchTimers} from '../../actions/timer_act
 const msp = (state, ownProps) => {
     return({
         end: ownProps.end,
-        users: state.users
+        users: state.users,
+        currentUser: state.session.user
     });
 }
 
@@ -15,7 +16,7 @@ const mdp = (dispatch) => {
     return ({
         fetchTimers: () => dispatch(fetchTimers()),
         fetchUserTimers: (id) => dispatch(fetchUserTimers(id)),
-        recordTimer: (data) => dispatch(recordTimer(data))
+        recordTimer: (data, id) => dispatch(recordTimer(data, id))
     })
 }
 
