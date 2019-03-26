@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom';
 import SinglePlayer from './single_player';
 
 const mapStateToProps = (state, ownProps) => {
-  // debugger
   return({
       end: ownProps.end
   })

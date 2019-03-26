@@ -14,6 +14,7 @@ export default class SinglePlayer extends Component {
       that
     });
 
+    this.timerOn = false;
   }
   
   componentWillUnmount(){
@@ -46,7 +47,7 @@ export default class SinglePlayer extends Component {
     
     this.layer.resizeWorld();
 
-    this.map.setCollisionBetween(1, 1);
+    this.map.setCollisionBetween(1, 12);
 
 
     this.emitter = this.game.add.emitter(this.game.world.centerX, this.game.world.centerY, 400);
@@ -73,8 +74,6 @@ export default class SinglePlayer extends Component {
     
     this.car.body.createBodyCallback(this.finishline, () => {
       if(this.that.props.stopTimer){
-        console.log(this.that.props);
-        console.log("WHAT????");
         this.that.props.stopTimer();
         this.that.props.history.push('/rooms');
       }
@@ -83,15 +82,23 @@ export default class SinglePlayer extends Component {
 
     let sounds = this.synth1;
 
-    // this.game.sound.setDecodedCallback(sounds, () => {
-    //   this.synth1.loopFull(0.6);
-    // }, this);
+    this.game.sound.setDecodedCallback(sounds, () => {
+      this.synth1.loopFull(0.6);
+    }, this);
 
   }
 
   update() {
     let car = this.car;
     let cursors = this.cursors;
+    if (!this.timerOn 
+        && (cursors.left.isDown 
+        || cursors.right.isDown 
+        || cursors.up.isDown 
+        || cursors.down.isDown)){
+      this.timerOn = true;
+      this.that.props.startTimer();
+    }
 
     if (cursors.left.isDown) { car.body.rotateLeft(100); }   //car movement
     else if (cursors.right.isDown) { car.body.rotateRight(100); }
