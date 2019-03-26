@@ -57,7 +57,7 @@ class Room extends React.Component {
     }).slice(0, 10).map((timer, idx) => {
       return (
         <tr key={timer._id}>
-          <td id="td">
+          <td id="td-r">
             {idx + 1}
           </td>
           <TimerItems timer={timer} />
@@ -78,9 +78,9 @@ class Room extends React.Component {
                 <table cellPadding="0" cellSpacing="0" border="0">
                   <thead>
                     <tr>
-                      <th id='th'>RANK</th>
-                      <th id='th'>USERNAME</th>
-                      <th id='th'>HI-SCORE</th>
+                      <th id='th-r'>RANK</th>
+                      <th id='th-r'>USERNAME</th>
+                      <th id='th-r'>HI-SCORE</th>
                     </tr>
                   </thead>
                 </table>

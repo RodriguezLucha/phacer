@@ -7,10 +7,10 @@ class TimerItems extends React.Component {
     render(){
         return (
             <>
-                <td id='td'>
+                <td id='td-r'>
                     {this.props.timer.handle}
                 </td >
-            <td id='td'>
+            <td id='td-r'>
                    {this.props.timer.endTime}
             </td >
             </>
