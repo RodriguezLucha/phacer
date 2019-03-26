@@ -14,6 +14,7 @@ export default class SinglePlayer extends Component {
       that
     });
 
+    this.timerOn = false;
   }
   
   componentWillUnmount(){
@@ -70,8 +71,6 @@ export default class SinglePlayer extends Component {
 
     this.game.physics.p2.enable(this.finishline, false);
     this.finishline.body.static = true;
-
-    let synth1 = this.game.add.audio('synth1');
     
     this.car.body.createBodyCallback(this.finishline, () => {
       if(this.that.props.stopTimer){
@@ -81,7 +80,7 @@ export default class SinglePlayer extends Component {
     }, this);
     this.game.physics.p2.setImpactEvents(true);
 
-    let sounds = synth1;
+    let sounds = this.synth1;
 
     this.game.sound.setDecodedCallback(sounds, () => {
       this.synth1.loopFull(0.6);
@@ -92,6 +91,14 @@ export default class SinglePlayer extends Component {
   update() {
     let car = this.car;
     let cursors = this.cursors;
+    if (!this.timerOn 
+        && (cursors.left.isDown 
+        || cursors.right.isDown 
+        || cursors.up.isDown 
+        || cursors.down.isDown)){
+      this.timerOn = true;
+      this.that.props.startTimer();
+    }
 
     if (cursors.left.isDown) { car.body.rotateLeft(100); }   //car movement
     else if (cursors.right.isDown) { car.body.rotateRight(100); }
