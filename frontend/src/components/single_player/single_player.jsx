@@ -15,6 +15,7 @@ export default class SinglePlayer extends Component {
     });
 
     this.timerOn = false;
+    this.stopCalled = false;
   }
   
   componentWillUnmount(){
@@ -73,7 +74,8 @@ export default class SinglePlayer extends Component {
     this.finishline.body.static = true;
     
     this.car.body.createBodyCallback(this.finishline, () => {
-      if(this.that.props.stopTimer){
+      if(this.that.props.stopTimer && !this.stopCalled){
+        this.stopCalled = true;
         this.that.props.stopTimer();
         this.that.props.history.push('/rooms');
       }

@@ -33,7 +33,7 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
     intTime: decryptedBody.intTime,
     handle: decryptedBody.handle
   });
-  newTimer.save().then(timer => res.json({result: "Saved."}));
+  newTimer.save().then(timer => res.json(timer));
 });
 
 module.exports = router;

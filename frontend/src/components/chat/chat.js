@@ -11,27 +11,31 @@ class Chat extends React.Component {
             message: '',
             messages: [],
         };
-
         let url = `${window.location.hostname}:${window.location.port}`;
         
         this.socket = io.connect(url);
-
+        
+    }
+    componentDidMount() {
+    
         this.socket.on('RECEIVE_MESSAGE', function (data) {
             data['timestamp'] = new Date().getTime();
             addMessage(data);
         });
 
         const addMessage = data => {
-            this.setState({ messages: [...this.state.messages, data] });
-            if(this.refs && this.state.messages && this.state.messages.length > 0){
-                
+            this.setState({
+                messages: [...this.state.messages, data]
+            });
+            if (this.refs && this.state.messages && this.state.messages.length > 0) {
+
                 let messages = this.state.messages;
                 let lastMessage = messages[messages.length - 1];
-                
-                if (lastMessage.timestamp){
+
+                if (lastMessage.timestamp) {
                     let lastTimestamp = lastMessage.timestamp;
-    
-                    if (this.refs[lastTimestamp]){
+
+                    if (this.refs[lastTimestamp]) {
                         this.refs[lastTimestamp].scrollIntoView({
                             block: 'end',
                             behavior: 'smooth'
@@ -42,13 +46,18 @@ class Chat extends React.Component {
         };
 
         this.sendMessage = ev => {
-            ev.preventDefault();
-            this.socket.emit('SEND_MESSAGE', {
-                author: this.state.username,
-                message: this.state.message
-            })
-            this.setState({ message: '' });
+          ev.preventDefault();
+          this.socket.emit('SEND_MESSAGE', {
+            author: this.state.username,
+            message: this.state.message
+          })
+          this.setState({
+            message: ''
+          });
         }
+    }
+    componentWillUnmount() {
+        this.socket.disconnect();
     }
 
     componentWillReceiveProps(newState) {
