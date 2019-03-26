@@ -46,7 +46,7 @@ export default class SinglePlayer extends Component {
     
     this.layer.resizeWorld();
 
-    this.map.setCollisionBetween(1, 12);
+    this.map.setCollisionBetween(1, 1);
 
 
     this.emitter = this.game.add.emitter(this.game.world.centerX, this.game.world.centerY, 400);
@@ -70,22 +70,22 @@ export default class SinglePlayer extends Component {
 
     this.game.physics.p2.enable(this.finishline, false);
     this.finishline.body.static = true;
-
-    let synth1 = this.game.add.audio('synth1');
     
     this.car.body.createBodyCallback(this.finishline, () => {
       if(this.that.props.stopTimer){
+        console.log(this.that.props);
+        console.log("WHAT????");
         this.that.props.stopTimer();
         this.that.props.history.push('/rooms');
       }
     }, this);
     this.game.physics.p2.setImpactEvents(true);
 
-    let sounds = synth1;
+    let sounds = this.synth1;
 
-    this.game.sound.setDecodedCallback(sounds, () => {
-      this.synth1.loopFull(0.6);
-    }, this);
+    // this.game.sound.setDecodedCallback(sounds, () => {
+    //   this.synth1.loopFull(0.6);
+    // }, this);
 
   }
 

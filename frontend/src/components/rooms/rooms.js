@@ -1,8 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import './rooms.scss'
+import '../nav/navbar.scss';
 import Chat from '../chat/chat'
-import NavBarContainer from '../nav/navbar_container';
 import TimerItems from '../Timer/timer_items';
 import { Link } from 'react-router-dom'
 
@@ -65,13 +65,11 @@ class Room extends React.Component {
       )
     })
 
-
-    if (this.state.rooms.length === 0) {
-      return (<div>There are no Rooms</div>)
-    } else {
       return (
         <div className="room-index-page">
-          <NavBarContainer />
+          <div>
+            < h1 id = "nav-title" > Phacer </h1>
+          </div>
           <div className="room-index-page-2">
             <div className='room-index-table'>
               <div className="tbl-header">
@@ -117,7 +115,7 @@ class Room extends React.Component {
         </div>
       );
     }
-  }
+  
 }
 
 export default withRouter(Room);
