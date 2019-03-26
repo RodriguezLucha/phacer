@@ -14,7 +14,8 @@
 * [Phaser](https://phaser.io/) JS (gaming engine)
 
 ## Chat code snippet
-It was very easy to add a global chat using socket.io.
+It was very easy to add a global chat using socket.io:
+
 `app.js`
 ```js
 const socket = require('socket.io');
