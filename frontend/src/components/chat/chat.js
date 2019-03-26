@@ -12,17 +12,13 @@ class Chat extends React.Component {
             messages: [],
         };
 
-
-
         let url = `${window.location.hostname}:${window.location.port}`;
+        
         this.socket = io.connect(url);
 
         this.socket.on('RECEIVE_MESSAGE', function (data) {
             data['timestamp'] = new Date().getTime();
             addMessage(data);
-            
-            //this.messages.scrollIntoView({block: 'end', behavior: 'smooth'});
-            
         });
 
         const addMessage = data => {
