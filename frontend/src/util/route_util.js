@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 
 const Auth = ({ component: Component, path, loggedIn, exact }) => {
-  console.log(path);
   return (
     <Route path={path} exact={exact} render={ 
       (props) => (!loggedIn ? (
@@ -11,7 +10,7 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => {
         ) : (
           <Redirect to="/rooms" />
         )
-      )} 
+      )}
     />
   );
 
