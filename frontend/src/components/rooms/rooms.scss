@@ -30,19 +30,38 @@ table{
   margin-top: 0px;
   border: 1px solid rgba(53, 52, 52, 0.425);
 }
-.th{
+#th{
+  color: #FFD662;
     font-family: 'Montserrat', sans-serif;
   padding: 20px 15px;
   text-align: left;
   font-weight: 500;
-  font-size: 12px;
-  color: #fff;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+#th-r{
+  text-align: center;
+  color: #FFD662;
+  font-family: 'Montserrat', sans-serif;
+  padding: 10px 15px;
+  font-weight: 500;
+  font-size: 20px;
   text-transform: uppercase;
 }
 #td{
   font-family: 'Montserrat', sans-serif;
   padding: 15px;
   text-align: left;
+  vertical-align:middle;
+  font-weight: 300;
+  font-size: 12px;
+  color: #fff;
+  border-bottom: solid 1px rgba(255,255,255,0.1);
+}
+#td-r{
+  font-family: 'Montserrat', sans-serif;
+  padding: 15px;
+  text-align: center;
   vertical-align:middle;
   font-weight: 300;
   font-size: 12px;
@@ -225,8 +244,9 @@ section{
 
 .instruct-text{
   font-family: 'Montserrat', sans-serif;
-  color: rgb(155, 155, 155);
-  font-size: 30px;
+  color: rgb(255, 255, 255);
+  font-weight: 800;
+  font-size: 40px;
 }
 
 a:-webkit-any-link {

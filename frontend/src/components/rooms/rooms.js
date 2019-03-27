@@ -57,7 +57,7 @@ class Room extends React.Component {
     }).slice(0, 10).map((timer, idx) => {
       return (
         <tr key={timer._id}>
-          <td id="td">
+          <td id="td-r">
             {idx + 1}
           </td>
           <TimerItems timer={timer} />
@@ -65,36 +65,37 @@ class Room extends React.Component {
       )
     })
 
-    return (
-      <div className="room-index-page">
-        <div>
-          < h1 id = "nav-title" > Phacer </h1>
-        </div>
-        <div className="room-index-page-2">
-          <div className='room-index-table'>
-            <div className="tbl-header">
-              <table cellPadding="0" cellSpacing="0" border="0">
-                <thead>
-                  <tr>
-                    <th id='th'>RANK</th>
-                    <th id='th'>USERNAME</th>
-                    <th id='th'>HI-SCORE</th>
-                  </tr>
-                </thead>
-              </table>
-            </div>
-            <div className="tbl-content">
-              <table cellPadding="0" cellSpacing="0" border="0">
-                <tbody>
-                  {timerItems}
-                </tbody>
-              </table>
-            </div>
-          </div >
-          <div className="start-wrapper">
-            <div>
-              <Link className="start-button" to={'/single_player'}><span>Play</span></Link>
-            </div>
+
+      return (
+        <div className="room-index-page">
+          <div>
+            < h1 id = "nav-title">Phacer</h1>
+          </div>
+          <div className="room-index-page-2">
+            <div className='room-index-table'>
+              <div className="tbl-header">
+                <table cellPadding="0" cellSpacing="0" border="0">
+                  <thead>
+                    <tr>
+                      <th id='th-r'>RANK</th>
+                      <th id='th-r'>USERNAME</th>
+                      <th id='th-r'>HI-SCORE</th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+              <div className="tbl-content">
+                <table cellPadding="0" cellSpacing="0" border="0">
+                  <tbody>
+                    {timerItems}
+                  </tbody>
+                </table>
+              </div>
+            </div >
+            <div className="start-wrapper">
+              <div>
+                <Link className = "start-button" to={'/single_player'}><span>Play</span></Link>
+              </div>
             <div>
               <button className="log-out-btn" onClick={this.logoutUser}><span>Logout</span></button>
             </div>
