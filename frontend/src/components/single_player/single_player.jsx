@@ -4,6 +4,10 @@ import './single_player.scss'
 export default class SinglePlayer extends Component {
   
   componentDidMount() {
+    
+    window.PhaserGlobal = {
+      hideBanner: true
+    };
 
     let that = this;
 
