@@ -101,7 +101,7 @@ class Room extends React.Component {
             </div>
             <div className="instructions">
               <h3 className="instruct-text"> HOW TO PLAY</h3> <br></br>
-              <img id="arrow_keys" src="instruct-3-1.png" />
+              <img id="arrow_keys" src="instruct-3-1.png" alt="instructions"/>
               <div>
 
                 <span className="instruct-text"> TURN </span> <span className="instruct-text">  ACCEL</span>
