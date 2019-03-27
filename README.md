@@ -13,6 +13,34 @@
 * Node & Express (backend)
 * [Phaser](https://phaser.io/) JS (gaming engine)
 
+## Chat code snippet
+It was very easy to add a global chat using socket.io:
+
+`app.js`
+```js
+const socket = require('socket.io');
+//...
+const io = socket(server);
+io.on('connection', (socket) => {
+  socket.on('SEND_MESSAGE', (data) => {
+    io.emit('RECEIVE_MESSAGE', data);
+  });
+});
+```
+
+`chat.js`
+```js
+import io from "socket.io-client";
+//...
+this.socket = io.connect(url);
+
+this.socket.on('RECEIVE_MESSAGE', function (data) {
+    data['timestamp'] = new Date().getTime();
+    addMessage(data);
+});
+```
+
+
 
 
 ## Key features

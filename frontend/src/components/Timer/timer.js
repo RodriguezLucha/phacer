@@ -48,20 +48,14 @@ class Timer extends React.Component {
     resetTimer() {
       this.setState({time: 0})
     }
-
-    componentDidMount() {
-      this.startTimer()
-    }
-
-   
       
     render() {
       return (
         <>
         <div className="total">
-            <h3 className='game-timer'><i className="fas fa-stopwatch"></i>
-
- {prettyMs(this.state.time)}</h3>
+          <h3 className='game-timer'><i className="fas fa-stopwatch"></i>
+            {prettyMs(this.state.time)}
+          </h3>
           <SinglePlayerContainer stopTimer={this.stopTimer} startTimer={this.startTimer} end={this.state.end} recordTimer={this.props.recordTimer} fetchTimers ={this.props.fetchTimers}/>
         </div>
         </>

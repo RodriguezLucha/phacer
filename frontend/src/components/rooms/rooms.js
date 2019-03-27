@@ -1,8 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import './rooms.scss'
+import '../nav/navbar.scss';
 import Chat from '../chat/chat'
-import NavBarContainer from '../nav/navbar_container';
 import TimerItems from '../Timer/timer_items';
 import { Link } from 'react-router-dom'
 
@@ -66,12 +66,11 @@ class Room extends React.Component {
     })
 
 
-    if (this.state.rooms.length === 0) {
-      return (<div>There are no Rooms</div>)
-    } else {
       return (
         <div className="room-index-page">
-          <NavBarContainer />
+          <div>
+            < h1 id = "nav-title">Phacer</h1>
+          </div>
           <div className="room-index-page-2">
             <div className='room-index-table'>
               <div className="tbl-header">
@@ -95,29 +94,29 @@ class Room extends React.Component {
             </div >
             <div className="start-wrapper">
               <div>
-                <Link className="start-button" to={'/single_player'}><span>Play</span></Link>
+                <Link className = "start-button" to={'/single_player'}><span>Play</span></Link>
               </div>
-              <div>
-                <button className="log-out-btn" onClick={this.logoutUser}><span>Logout</span></button>
-              </div>
-              <div className="instructions">
-                <h3 className="instruct-text"> HOW TO PLAY</h3> <br></br>
-                <img id="arrow_keys" src="instruct-3-1.png" />
-                <div>
-
-                  <span className="instruct-text"> TURN </span> <span className="instruct-text">  ACCEL</span>
-
-                </div>
-              </div >
-            </div>
             <div>
-              <Chat users={this.props.users} />
+              <button className="log-out-btn" onClick={this.logoutUser}><span>Logout</span></button>
             </div>
+            <div className="instructions">
+              <h3 className="instruct-text"> HOW TO PLAY</h3> <br></br>
+              <img id="arrow_keys" src="instruct-3-1.png" />
+              <div>
+
+                <span className="instruct-text"> TURN </span> <span className="instruct-text">  ACCEL</span>
+
+              </div>
+            </div >
+          </div>
+          <div>
+            <Chat users={this.props.users} />
           </div>
         </div>
-      );
-    }
+      </div>
+    );
   }
+  
 }
 
 export default withRouter(Room);
