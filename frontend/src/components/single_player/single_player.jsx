@@ -34,7 +34,7 @@ export default class SinglePlayer extends Component {
     this.game.load.image('fire1', 'game/fire1.png');
     this.game.load.image('fire2', 'game/fire2.png');
     this.game.load.image('fire3', 'game/fire3.png');
-    this.game.load.audio('synth1', 'game/synth1.mp3');
+    this.game.load.audio('synth1', 'game/synth2.mp3');
     this.game.load.image('finish-line', 'game/finish-line.png'); //added as finish line
   }
 
