@@ -28,10 +28,9 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
 
     
     Sesh.findById({ _id: '5caa63d7240c2f13ca1bc1d8'}, (err, doc) => {
-      return res.json(doc);
+      return doc;
     })
       .then(prev => {
-        console.log(prev);
         if (prev.sesh !== req.body.t) return "";
         let decrypted = CryptoJS.AES.decrypt(req.body.encrypted, req.user.id);
         let str = decrypted.toString(CryptoJS.enc.Utf8);
@@ -40,19 +39,19 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
         const justSecs = new RegExp('[0-9]+\.[0-9]');
 
         if ((end[end.length - 2] + end[end.length - 1]) === 'ms') {
-          end = "cheater";
+          return ' ';
         } else if (end.match(justSecs)[0]) {
           if (parseFloat(end.match(justSecs)[0]) > 10.0) {
             end = end;
           } else {
-            end = 'cheater';
+            return ' ';
           }
         } else {
-          end = 'cheater';
+          return ' ';
         }
 
         const newTimer = new Timer({
-          endTime: decryptedBody.endTime,
+          endTime: end,
           intTime: decryptedBody.intTime,
           handle: decryptedBody.handle
         });
@@ -60,7 +59,17 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
         newTimer.save().then(timer => res.json(timer));
 
         return req.body.t;
-      });
+      })
+      .then(el => {
+        Sesh.findById({_id: '5caa63d7240c2f13ca1bc1d8'}, (err, doc) => {
+          if (el.length > 0) {
+            doc.sesh = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+            doc.save();
+          }
+        });
+        return res.json('');
+      })
+      .catch(err => console.log(err));
 });
 
 

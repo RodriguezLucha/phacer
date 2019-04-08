@@ -35,9 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(<Root store={store} />, root);
 
   //test
-  window.getState = store.getState;
-  window.x = () => Math.random().toString(36).substring(2,15)+Math.random().toString(36).substring(2,15);
-  window.storeSession = storeSession;
-  window.getSession = getSession;
+  // window.getState = store.getState;
+  // window.x = () => Math.random().toString(36).substring(2,15)+Math.random().toString(36).substring(2,15);
+  // window.storeSession = storeSession;
+  // window.getSession = getSession;
 
 });
