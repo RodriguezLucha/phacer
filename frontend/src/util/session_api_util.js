@@ -9,7 +9,7 @@ export const setAuthToken = token => {
 };
 
 export const getSession = (id) => {
-  return axios.get('/api/session', {sesh: id});
+  return axios.get('/api/session/', {sesh: id});
 };
 
 export const storeSession = (id) => {

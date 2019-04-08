@@ -34,7 +34,7 @@ export default class SinglePlayer extends Component {
     this.game.load.image('fire1', 'game/fire1.png');
     this.game.load.image('fire2', 'game/fire2.png');
     this.game.load.image('fire3', 'game/fire3.png');
-    this.game.load.audio('synth1', 'game/synth3.mp3');
+    // this.game.load.audio('synth1', 'game/synth3.mp3');
     this.game.load.image('finish-line', 'game/finish-line.png'); //added as finish line
   }
 
@@ -68,7 +68,7 @@ export default class SinglePlayer extends Component {
     this.game.physics.p2.convertTilemap(this.map, this.layer);
     
     this.cursors = this.game.input.keyboard.createCursorKeys();
-    this.car = this.game.add.sprite(32, this.game.world.height - 150, 'car');
+    this.car = this.game.add.sprite(1515, this.game.world.height - 500, 'car');
     this.finishline = this.game.add.sprite(1500, 0, 'finish-line'); //add finishline
     this.game.camera.follow(this.car);
     

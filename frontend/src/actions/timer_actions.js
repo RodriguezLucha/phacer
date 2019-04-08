@@ -1,5 +1,7 @@
 import { getTimers, getUserTimers, postTimer } from '../util/timer_api_util';
+import { getSession, storeSession } from '../util/session_api_util';
 import CryptoJS from 'crypto-js';
+import { get } from 'mongoose';
 
 export const RECEIVE_TIMERS = "RECEIVE_TIMERS";
 export const RECEIVE_USER_TIMERS = "RECEIVE_USER_TIMERS";
@@ -32,12 +34,14 @@ export const fetchUserTimers = id => dispatch => (
     .catch(err => console.log(err))
 );
 
-export const recordTimer = (data, id) => dispatch => {
-  let stringifiedData = JSON.stringify(data);
-  
-  let encrypted = CryptoJS.AES.encrypt(stringifiedData, id);
+export const recordTimer = (data, id, n) => dispatch => {
+  getSession()
+    .then(t => {
+      let stringifiedData = JSON.stringify(data);
+      let encrypted = CryptoJS.AES.encrypt(stringifiedData, id);
 
-  return postTimer({"encrypted" : encrypted.toString()})
-    .then(timer => dispatch(receiveNewTimer(timer)))
-    .catch(err => console.log(err))
+      return postTimer({ "encrypted": encrypted.toString(), "t": t.data, "ran": n})
+        .then(timer => dispatch(receiveNewTimer(timer)))
+        .catch(err => console.log(err));
+    });
 };
