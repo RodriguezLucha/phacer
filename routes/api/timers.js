@@ -51,7 +51,7 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
         handle: decryptedBody.handle
       });
 
-      newTimer.save().then(timer => res.json(timer));
+      newTimer.save();
 
       return req.body.t;
     })
