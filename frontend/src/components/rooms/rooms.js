@@ -60,7 +60,7 @@ class Room extends React.Component {
           <td id="td-r">
             {idx + 1}
           </td>
-          <TimerItems timer={timer} />
+          <TimerItems timer={timer} key={timer.id} />
         </tr>
       )
     })

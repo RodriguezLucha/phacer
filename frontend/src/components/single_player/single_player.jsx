@@ -68,7 +68,7 @@ export default class SinglePlayer extends Component {
     this.game.physics.p2.convertTilemap(this.map, this.layer);
     
     this.cursors = this.game.input.keyboard.createCursorKeys();
-    this.car = this.game.add.sprite(1515, this.game.world.height - 500, 'car'); // fix
+    this.car = this.game.add.sprite(32, this.game.world.height - 150, 'car'); // fix
     this.finishline = this.game.add.sprite(1500, 0, 'finish-line'); //add finishline
     this.game.camera.follow(this.car);
     

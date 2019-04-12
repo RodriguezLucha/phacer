@@ -26,8 +26,8 @@ router.get('/user/:user_id', (req, res) => {
 router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
   const d = new RegExp('[^ s=][^s=][A-Za-z0-9].+');
 
-    
-    Sesh.findById({ _id: '5caa63d7240c2f13ca1bc1d8'}, (err, doc) => {
+    console.log(Sesh);
+  Sesh.findById({ _id: '5cb10e07f0a2322e22e4f554'}, (err, doc) => {
       return doc;
     })
       .then(prev => {
@@ -61,7 +61,7 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
         return req.body.t;
       })
       .then(el => {
-        Sesh.findById({_id: '5caa63d7240c2f13ca1bc1d8'}, (err, doc) => {
+        Sesh.findById({ _id: '5cb10e07f0a2322e22e4f554'}, (err, doc) => {
           if (el.length > 0) {
             doc.sesh = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
             doc.save();
