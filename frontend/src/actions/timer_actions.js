@@ -1,7 +1,6 @@
 import { getTimers, getUserTimers, postTimer } from '../util/timer_api_util';
-import { getSession, storeSession } from '../util/session_api_util';
+import { getSession } from '../util/session_api_util';
 import CryptoJS from 'crypto-js';
-import { get } from 'mongoose';
 
 export const RECEIVE_TIMERS = "RECEIVE_TIMERS";
 export const RECEIVE_USER_TIMERS = "RECEIVE_USER_TIMERS";

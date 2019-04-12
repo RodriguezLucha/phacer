@@ -23,7 +23,7 @@ class Timer extends React.Component {
     }
 
     rand() {
-      this.state.x = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+      this.setState({x : Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)});
     }
 
     startTimer() {

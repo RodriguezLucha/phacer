@@ -54,13 +54,13 @@ class Room extends React.Component {
       const l = a.intTime;
       const r = b.intTime;
       return l > r ? 1 : l < r ? -1 : 0;
-    }).slice(0, 10).map((timer, idx) => {
+    }).slice(0, 10).filter(e => e).map((timer, idx) => {
       return (
         <tr key={timer._id}>
           <td id="td-r">
             {idx + 1}
           </td>
-          <TimerItems timer={timer} key={timer.id} />
+          <TimerItems timer={timer} key={timer._id} />
         </tr>
       )
     })

@@ -24,52 +24,47 @@ router.get('/user/:user_id', (req, res) => {
 });
 
 router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
-  const d = new RegExp('[^ s=][^s=][A-Za-z0-9].+');
+  Sesh.findById({_id: '5cb10e07f0a2322e22e4f554'}, (err, doc) => doc)
+    .then(prev => {
+      if (prev.sesh !== req.body.t) return '';
+      let decrypted = CryptoJS.AES.decrypt(req.body.encrypted, req.user.id);
+      let str = decrypted.toString(CryptoJS.enc.Utf8);
+      let decryptedBody = JSON.parse(str);
+      let end = decryptedBody.endTime;
+      const justSecs = new RegExp('[0-9]+.[0-9]');
 
-    console.log(Sesh);
-  Sesh.findById({ _id: '5cb10e07f0a2322e22e4f554'}, (err, doc) => {
-      return doc;
-    })
-      .then(prev => {
-        if (prev.sesh !== req.body.t) return "";
-        let decrypted = CryptoJS.AES.decrypt(req.body.encrypted, req.user.id);
-        let str = decrypted.toString(CryptoJS.enc.Utf8);
-        let decryptedBody = JSON.parse(str);
-        let end = decryptedBody.endTime;
-        const justSecs = new RegExp('[0-9]+\.[0-9]');
-
-        if ((end[end.length - 2] + end[end.length - 1]) === 'ms') {
-          return ' ';
-        } else if (end.match(justSecs)[0]) {
-          if (parseFloat(end.match(justSecs)[0]) > 10.0) {
-            end = end;
-          } else {
-            return ' ';
-          }
+      if ((end[end.length - 2] + end[end.length - 1]) === 'ms') {
+        return ' ';
+      } else if (end.match(justSecs)[0]) {
+        if (parseFloat(end.match(justSecs)[0]) > 10.0) {
+          (0);  //noop
         } else {
           return ' ';
         }
+      } else {
+        return ' ';
+      }
 
-        const newTimer = new Timer({
-          endTime: end,
-          intTime: decryptedBody.intTime,
-          handle: decryptedBody.handle
-        });
+      const newTimer = new Timer({
+        endTime: end,
+        intTime: decryptedBody.intTime,
+        handle: decryptedBody.handle
+      });
 
-        newTimer.save().then(timer => res.json(timer));
+      newTimer.save().then(timer => res.json(timer));
 
-        return req.body.t;
-      })
-      .then(el => {
-        Sesh.findById({ _id: '5cb10e07f0a2322e22e4f554'}, (err, doc) => {
-          if (el.length > 0) {
-            doc.sesh = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-            doc.save();
-          }
-        });
-        return res.json('');
-      })
-      .catch(err => console.log(err));
+      return req.body.t;
+    })
+    .then(el => {
+      Sesh.findById({_id: '5cb10e07f0a2322e22e4f554'}, (err, doc) => {
+        if (el.length > 0) {
+          doc.sesh = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+          doc.save();
+        }
+      });
+      return res.json('');
+    })
+    .catch(err => console.log(err));
 });
 
 
