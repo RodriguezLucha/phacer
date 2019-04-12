@@ -6,10 +6,10 @@ import jwt_decode from 'jwt-decode';
 
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
+import { getSession, storeSession } from './util/session_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
-
 
   
   if (localStorage.jwtToken) {
@@ -35,6 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(<Root store={store} />, root);
 
   //test
-  window.getState = store.getState;
+  // window.getState = store.getState;
+  // window.x = () => Math.random().toString(36).substring(2,15)+Math.random().toString(36).substring(2,15);
+  // window.storeSession = storeSession;
+  // window.getSession = getSession;
 
 });

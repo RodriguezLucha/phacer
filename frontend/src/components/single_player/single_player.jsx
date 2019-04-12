@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import Phaser from 'phaser-ce';
-import './single_player.scss'
+import './single_player.scss';
 export default class SinglePlayer extends Component {
   
   componentDidMount() {
@@ -68,7 +68,7 @@ export default class SinglePlayer extends Component {
     this.game.physics.p2.convertTilemap(this.map, this.layer);
     
     this.cursors = this.game.input.keyboard.createCursorKeys();
-    this.car = this.game.add.sprite(32, this.game.world.height - 150, 'car');
+    this.car = this.game.add.sprite(1515, this.game.world.height - 500, 'car'); // fix
     this.finishline = this.game.add.sprite(1500, 0, 'finish-line'); //add finishline
     this.game.camera.follow(this.car);
     
@@ -82,6 +82,7 @@ export default class SinglePlayer extends Component {
         this.stopCalled = true;
         this.that.props.stopTimer();
         this.that.props.history.push('/rooms');
+        // window.location.reload(); // can be used to reset request history in devtools
       }
     }, this);
     this.game.physics.p2.setImpactEvents(true);
@@ -89,7 +90,7 @@ export default class SinglePlayer extends Component {
     let sounds = this.synth1;
 
     this.game.sound.setDecodedCallback(sounds, () => {
-      this.synth1.loopFull(0.6);
+      this.synth1.loopFull(0.22);
     }, this);
 
   }

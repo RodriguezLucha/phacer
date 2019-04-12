@@ -22,6 +22,10 @@ class Timer extends React.Component {
         this.resetTimer = this.resetTimer.bind(this)
     }
 
+    rand() {
+      this.state.x = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    }
+
     startTimer() {
         this.setState({
           time: this.state.time,
@@ -33,6 +37,14 @@ class Timer extends React.Component {
           time: Date.now() - this.state.start
         }),1)
     }
+    
+    handleConstraints() {
+      const c = Date.now() - this.state.start;
+
+      // if(this.state.intTime>=10000&&Math.abs(this.state.time-c)<25) this.props.recordTimer(this.state, this.props.currentUser.id);
+      if (Math.abs(this.state.time - c) < 25) this.props.recordTimer(this.state, this.props.currentUser.id, this.state.x);
+      this.rand();
+    }
 
     stopTimer() {
       if (this.stop) return ;
@@ -40,7 +52,7 @@ class Timer extends React.Component {
       this.setState({isOn: false})
       this.setState({endTime: prettyMs(this.state.time)})
       this.setState({intTime: (this.state.time)})
-      this.props.recordTimer(this.state, this.props.currentUser.id);
+      this.handleConstraints();
       clearInterval(this.timer)
 
     }

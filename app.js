@@ -10,6 +10,7 @@ const path = require('path');
 const users = require('./routes/api/users');
 const rooms = require('./routes/api/rooms');
 const timers = require('./routes/api/timers');
+const session = require('./routes/api/session');
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'));
@@ -19,7 +20,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 mongoose
-  .connect(db, {useNewUrlParser: true})
+  .connect(db, {useNewUrlParser: true, useCreateIndex: true})
   .then(() => console.log('Connected to MongoDB successfully'))
   .catch(err => console.log(err));
 
@@ -34,6 +35,7 @@ app.use(bodyParser.json());
 app.use('/api/users', users);
 app.use('/api/rooms', rooms);
 app.use('/api/timers', timers);
+app.use('/api/session', session);
 
 const port = process.env.PORT || 5000;
 const server = app.listen(port, () => console.log(`Server is running on port ${port}`));

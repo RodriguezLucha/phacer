@@ -8,6 +8,14 @@ export const setAuthToken = token => {
   }
 };
 
+export const getSession = (id) => {
+  return axios.get('/api/session/', {sesh: id});
+};
+
+export const storeSession = (id) => {
+  return axios.post('/api/session/', {sesh: id});
+};
+
 export const signup = (userData) => {
   return axios.post('/api/users/register', userData);
 };
