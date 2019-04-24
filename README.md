@@ -5,7 +5,7 @@
 
 ## Live
 
-* [Live](https://phacer.herokuapp.com/)
+* [Live](https://phacer-one.herokuapp.com/#/)
 
 ## Technologies Used
 
