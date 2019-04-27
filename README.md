@@ -56,8 +56,6 @@ this.socket.on('RECEIVE_MESSAGE', function (data) {
 
 * Recording of top scores
 
-* Amazing CSS
-
 ## Future Direction
 
 * Add multiplayer and rooms
@@ -67,3 +65,6 @@ this.socket.on('RECEIVE_MESSAGE', function (data) {
  * [cindyko226](https://github.com/cindyko226)
  * [Vanchen07](https://github.com/Vanchen07)
  * [RodriguezLucha](https://github.com/RodriguezLucha/)
+ 
+ Additional encryption and security provided by
+ * [rfoong8983](https://github.com/rfoong8983d)
