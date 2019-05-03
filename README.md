@@ -67,4 +67,4 @@ this.socket.on('RECEIVE_MESSAGE', function (data) {
  * [RodriguezLucha](https://github.com/RodriguezLucha/)
  
  Additional encryption and security provided by
- * [rfoong8983](https://github.com/rfoong8983d)
+ * [rfoong8983](https://github.com/rfoong8983)
