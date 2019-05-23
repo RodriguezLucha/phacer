@@ -9,7 +9,11 @@ class Chat extends React.Component {
         this.state = {
             username: this.props.users.handle,
             message: '',
-            messages: [],
+            messages: [{
+                author: "Admin",
+                message: "Press ← → to steer and ↑ to accelerate",
+                timestamp: new Date().getTime()
+            }],
         };
         let url = `${window.location.hostname}:${window.location.port}`;
         
