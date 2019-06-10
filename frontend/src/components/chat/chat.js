@@ -68,21 +68,30 @@ class Chat extends React.Component {
         this.setState({username: this.props.users.handle});
     }
 
+    messageClassification(authorName){
+        return authorName === this.state.username ? "from-me" : "from-them";
+    }
+
+    keyPressed(event) {
+      if (event.key === "Enter") {
+        this.sendMessage(event);
+      }
+    }
+
     render() {
         return (
             <div className="chat-container">
                 <div className="row">
                     <div className="col-4">
                         <div className="card">
+                            <div className="card-title"> CHAT</div>
                             <div className="card-body">
-                                <div className="card-title"> CHAT</div>
-                                <hr />
                                 <div className="messages">
                                     {   
                                         this.state.messages.map(message => {
                                         return (
                                             <section key={`${message.author}:${message.message}:${message.timestamp}`} ref={message.timestamp} id='chat-total'>
-                                                <div className="from-me">{message.author}: {message.message}</div>
+                                                <div className={this.messageClassification(message.author)}>{message.author}: {message.message}</div>
                                             </section>
                                         )
                                     })}
@@ -90,7 +99,7 @@ class Chat extends React.Component {
 
                             </div>
                             <div className="card-footer">
-                                <input type="text" placeholder="Message" className="form-control" value={this.state.message} onChange={ev => this.setState({ message: ev.target.value })} />
+                                <input type="text" placeholder="Message" className="form-control" value={this.state.message} onKeyPress={(e) => this.keyPressed(e)} onChange={ev => this.setState({ message: ev.target.value })} />
                                 <br />
                                 <button onClick={this.sendMessage} className="start-button-two">Send</button>
                             </div>
