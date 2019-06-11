@@ -51,13 +51,14 @@ class Chat extends React.Component {
 
         this.sendMessage = ev => {
           ev.preventDefault();
-          this.socket.emit('SEND_MESSAGE', {
-            author: this.state.username,
-            message: this.state.message
-          })
-          this.setState({
-            message: ''
-          });
+          if(this.state.message){
+              this.socket.emit('SEND_MESSAGE', {
+                author: this.state.username,
+                message: this.state.message
+              })
+              this.setState({
+                message: ''
+              });          }
         }
     }
     componentWillUnmount() {
@@ -88,10 +89,10 @@ class Chat extends React.Component {
                             <div className="card-body">
                                 <div className="messages">
                                     {   
-                                        this.state.messages.map(message => {
+                                        this.state.messages.map(m => {
                                         return (
-                                            <section key={`${message.author}:${message.message}:${message.timestamp}`} ref={message.timestamp} id='chat-total'>
-                                                <div className={this.messageClassification(message.author)}>{message.author}: {message.message}</div>
+                                            <section key={`${m.author}:${m.message}:${m.timestamp}`} ref={m.timestamp} id='chat-total'>
+                                                <div className={this.messageClassification(m.author)}>{m.author}: {m.message}</div>
                                             </section>
                                         )
                                     })}

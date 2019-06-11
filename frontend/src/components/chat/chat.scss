@@ -24,7 +24,7 @@
 
 .card-title {
   font-family: "Montserrat", sans-serif;
-  font-size: 20px;
+  font-size: 14px;
   padding: 10px 15px;
   color: #ffd662;
   max-width: 25vw;
@@ -39,10 +39,11 @@ body {
 }
 
 section {
-  max-width: 450px;
   margin: 50px auto;
 
   div {
+    margin-left: 20px;
+    margin-right: 20px;
     max-width: 255px;
     word-wrap: break-word;
     margin-bottom: 12px;
@@ -57,6 +58,7 @@ section {
 
 .card-body {
   max-height: 30vh;
+  min-height: 30vh;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -73,6 +75,7 @@ section {
   clear: both;
 }
 .from-me {
+  font-size: 14px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
     "Helvetica Neue", sans-serif;
   position: relative;
@@ -116,7 +119,8 @@ section {
   }
 }
 .from-them {
-  z-index:2;
+  font-size: 14px;
+  z-index: 2;
   position: relative;
   padding: 10px 20px;
   background: #e5e5ea;
@@ -136,18 +140,18 @@ section {
     border-bottom-right-radius: 16px 20px;
   }
 
-  &:after {
-    content: "";
-    position: absolute;
-    z-index: 3;
-    bottom: -2px;
-    left: 4px;
-    width: 26px;
-    height: 20px;
-    background: white;
-    border-bottom-right-radius: 10px;
-    -webkit-transform: translate(-30px, -2px);
-  }
+  // &:after {
+  //   content: "";
+  //   position: absolute;
+  //   z-index: 3;
+  //   bottom: -2px;
+  //   left: 4px;
+  //   width: 26px;
+  //   height: 20px;
+  //   background: white;
+  //   border-bottom-right-radius: 10px;
+  //   -webkit-transform: translate(-30px, -2px);
+  // }
 }
 
 .btn-primary {
