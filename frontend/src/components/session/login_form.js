@@ -76,14 +76,14 @@ class LoginForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit} className="login-form-container">
-          <div onClick={this.props.closeModal} className="close-x">
+          {/* <div onClick={this.props.closeModal} className="close-x">
             <div className="x-test">
                 <div >
                   X
                 </div>
             </div>
             
-          </div>
+          </div> */}
           <div className="login-all-input-group">
             <br />
             <div>
@@ -127,9 +127,7 @@ class LoginForm extends React.Component {
                 />
               </div>
 
-              <br />
               <div>
-
                 <input
                   type="submit"
                   value="Demo Login"
@@ -137,17 +135,17 @@ class LoginForm extends React.Component {
                   className="login-submit-button"
                 />
               </div>
-            </div>
-
-            <div className="login-signup-group">
-              <div className="login-signup-button-title">
-                Don't have an account ? 
-              </div>
-              <div className="login-signup-button">
+              
+              <div>
                 {this.props.signupForm}
               </div>
-
             </div>
+
+              {/* <div className="login-signup-button-title">
+                Don't have an account ? 
+              </div> */}
+            {/* <div className="login-signup-group">
+            </div> */}
             
           </div>
         </form>

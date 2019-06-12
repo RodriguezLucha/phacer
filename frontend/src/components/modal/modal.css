@@ -26,9 +26,9 @@ input[type="button" i], button{
   padding: 10px;
   background: black;
   color: white;
-  font-family: Roboto, Sans-Serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   border-radius: 8px;
-  background-image: linear-gradient(-90deg, rgb(8, 7, 7), red);
+  /* background-image: linear-gradient(-90deg, rgb(8, 7, 7), red); */
 }
 
 
@@ -61,7 +61,36 @@ input[type="button" i], button{
 }
 
 .login-all-input-group{
-  width: 370px;
+  border: 1px solid #2b2b2b;
+  box-shadow:
+        0.5px 0.5px #2b2b2baf,
+        1px 1px #2b2b2b,
+        1.5px 1.5px #2b2b2b,
+        2px 2px #2b2b2b,
+        2.5px 2.5px #2b2b2b,
+        3px 3px #2b2b2b,
+        3.5px 3.5px #2b2b2b,
+        4px 4px #2b2b2b,
+        4.5px 4.5px #2b2b2b,
+        5px 5px #2b2b2b,
+        5.5px 5.5px #2b2b2b,
+        6px 6px #2b2b2b,
+        6.5px 6.5px #2b2b2b,
+        7px 7px #2b2b2b,
+        7.5px 7.5px #2b2b2b,
+        8px 8px #2b2b2b,
+        8.5px 8.5px #2b2b2b,
+        9px 9px #2b2b2b,
+        9.5px 9.5px #2b2b2b;
+  background: rgb(64, 65, 63);
+  padding: 30px;
+  position: fixed;
+  left: 0%;
+  top: 50%;
+  width: 600px;
+  max-width: 100%;
+  animation:modalSlide 1.5s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  transform: translateY(50%);
 }
 
 .signup-form-submit-group{
@@ -83,11 +112,11 @@ input[type="button" i], button{
 
 .login-input{
     font-family: Roboto, Sans-Serif;
+    background: rgb(184, 178, 178);
     width: 100%;
     padding: 15px;
-    border: 1px solid black;
-    border-radius: 25px;
-    background-image: linear-gradient(-90deg,  rgb(131, 129, 129), white);
+    border: 1px solid 2b2b2b;
+    border-radius: 5px;
 }
 
 
@@ -123,23 +152,19 @@ input[type="button" i], button{
 }
 
 .modal-background {
-   position: fixed;
-   top: 0%;
-   bottom: 0;
-   right: 0;
-   left: 6%;
-   transform:scale(0);
-   background-repeat: no-repeat;
-   background-size: cover;
-   background-position-x: 150px;
-   opacity: 1;
-   z-index: 200;
-   background-image: url('car2.jpg'); 
-   width: 80%;
-   height: 100%;
+    z-index: 1100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(19, 21, 21, 0.8);
+    opacity: 0.8;
+    animation: fadeIn 1.2s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  	
    
-   transform:scaleY(.01) scaleX(0);
-   animation:unfoldIn 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+   /* transform:scaleY(.01) scaleX(0); */
+   /* animation:unfoldIn 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards; */
    
 }
 
@@ -181,6 +206,26 @@ input[type="button" i], button{
     height: 300px;
 }
 
+@keyframes modalSlide {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(50%);
+    transform: translateY(-50%);
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {    
+    opacity: 1;
+  }
+}
 
 @keyframes unfoldIn {
   0% {
@@ -210,6 +255,7 @@ input[type="button" i], button{
 
 
  .modal-child {
+   padding: 50px;
    position: absolute;
    top: 40%;
    left: 50%;
@@ -241,14 +287,45 @@ input[type="button" i], button{
 
 
   .sinup-login-button, .login-submit-button{
-    font-family: Roboto, Sans-Serif;
-    cursor: pointer;
-    padding: 10px;
-    background: black;
-    color: white;
-    border-radius: 8px;
-    background-image: linear-gradient(-90deg, rgb(8,7,7), red);
- }
+	text-align:center;
+	padding: 20px 0px;
+	display:block;
+	width:110px;
+	cursor:pointer;
+	font-size:18px;
+	color:#F0F0F0;
+	border-radius:10px;
+	border-bottom:4px solid #941530;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	-webkit-user-select: none;        
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	
+	background: -webkit-linear-gradient(#db4363, #bd2444);
+    background: -o-linear-gradient(#db4363, #bd2444);
+    background: -moz-linear-gradient(#db4363, #bd2444);
+    background: linear-gradient(#db4363, #bd2444);
+	
+	-webkit-transition: background 0.05s linear;  
+    -moz-transition: background 0.05s linear;  
+    -o-transition: background 0.05s linear;  
+    transition: background 0.05s linear;
+	
+	background-size:1px 200px;
+	
+	transition: all .05s linear;
+}
+
+.login-submit-button:hover{
+	background-position:100px;
+}
+
+.login-submit-button:active {
+	border-bottom:1px solid #941530;
+	transform: translateY(3px);
+}
 
  .errors{
     color: white;

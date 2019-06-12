@@ -56,7 +56,7 @@ class SignupForm extends React.Component {
     return (
       <div className="signup-form-container">
         <form onSubmit={this.handleSubmit}>
-          <div onClick={this.props.closeModal} className="close-x">X</div>
+          {/* <div onClick={this.props.closeModal} className="close-x">X</div> */}
             <div className="signup-form">
               <br/>
                 <input type="text"
