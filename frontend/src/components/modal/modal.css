@@ -1,27 +1,97 @@
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center, button,
-dl, dt, dd, ol, ul, li, input,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-margin: 0;
-padding: 0;
-border: 0;
-font-size: 100%;
-font: inherit;
-vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+button,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+input,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
-input[type="button" i], 
-input[type="button" i], button{
+input[type="button" i],
+input[type="button" i],
+button {
   cursor: pointer;
   padding: 10px;
   background: black;
@@ -31,66 +101,62 @@ input[type="button" i], button{
   background-image: linear-gradient(-90deg, rgb(8, 7, 7), red);
 }
 
-
-
-.login-form-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    height: 300px;
-    width: 300px;
-    padding-right: 200px;
-    padding-bottom: 100px;
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 300px;
+  width: 300px;
+  padding-right: 200px;
+  padding-bottom: 100px;
 }
 
-.signup-form-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    height: 460px;
-    width: 300px;
-    padding-right: 200px;
-    padding-bottom: 100px;
+.signup-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 460px;
+  width: 300px;
+  padding-right: 200px;
+  padding-bottom: 100px;
 }
 
-.loing-form-submit-group{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    padding-bottom: 15px;
+.loing-form-submit-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding-bottom: 15px;
 }
 
-.login-all-input-group{
-  width: 370px;
+.login-all-input-group {
+  width: 20vw;
 }
 
-.signup-form-submit-group{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    border-top: 2px solid paleturquoise;
-    padding: 15px;
+.signup-form-submit-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border-top: 2px solid paleturquoise;
+  padding: 15px;
 }
 
-.signup-input{
-   font-family: Roboto, Sans-Serif;
-    width: 100%;
-    padding: 15px;
-    border: 1px solid black;
-    border-radius: 25px;
-    background-image: linear-gradient(-90deg,  rgb(131, 129, 129), white);
+.signup-input {
+  font-family: Roboto, Sans-Serif;
+  width: 100%;
+  padding: 15px;
+  border: 1px solid black;
+  border-radius: 25px;
+  background-image: linear-gradient(-90deg, rgb(131, 129, 129), white);
 }
 
-.login-input{
-    font-family: Roboto, Sans-Serif;
-    width: 100%;
-    padding: 15px;
-    border: 1px solid black;
-    border-radius: 25px;
-    background-image: linear-gradient(-90deg,  rgb(131, 129, 129), white);
+.login-input {
+  font-family: Roboto, Sans-Serif;
+  width: 100%;
+  padding: 15px;
+  border: 1px solid black;
+  border-radius: 25px;
+  background-image: linear-gradient(-90deg, rgb(131, 129, 129), white);
 }
-
-
 
 .login-signup-button-title {
   padding-right: 15px;
@@ -104,164 +170,150 @@ input[type="button" i], button{
   /* animation: neon1 1s ease-in-out alternate;  */
 }
 
-
 @-webkit-keyframes neon1 {
   from {
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 40px rgb(231, 185, 205), 0 0 70px rgb(243, 164, 198), 0 0 80px rgb(243, 189, 212), 0 0 100px rgb(231, 151, 186), 0 0 150px rgb(219, 106, 155);
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 40px rgb(231, 185, 205), 0 0 70px rgb(243, 164, 198),
+      0 0 80px rgb(243, 189, 212), 0 0 100px rgb(231, 151, 186), 0 0 150px rgb(219, 106, 155);
   }
   to {
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px rgb(250, 191, 216), 0 0 35px rgb(36, 2, 17), 0 0 40px rgb(19, 0, 8), 0 0 50px rgb(12, 2, 6), 0 0 75px rgb(17, 0, 8);
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px rgb(250, 191, 216), 0 0 35px rgb(36, 2, 17),
+      0 0 40px rgb(19, 0, 8), 0 0 50px rgb(12, 2, 6), 0 0 75px rgb(17, 0, 8);
   }
 }
 
-
-.login-signup-group{
-    display: flex;
-    justify-content: center;
-    border-top:2px solid paleturquoise;
-    padding-top: 10px;
+.login-signup-group {
+  display: flex;
+  justify-content: center;
+  border-top: 2px solid paleturquoise;
+  padding-top: 10px;
 }
+
+
 
 .modal-background {
-   position: fixed;
-   top: 0%;
-   bottom: 0;
-   right: 0;
-   left: 6%;
-   transform:scale(0);
-   background-repeat: no-repeat;
-   background-size: cover;
-   background-position-x: 150px;
-   opacity: 1;
-   z-index: 200;
-   background-image: url('car2.jpg'); 
-   width: 80%;
-   height: 100%;
-   
-   transform:scaleY(.01) scaleX(0);
-   animation:unfoldIn 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
-   
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  opacity: 1;
+  background: rgba(19, 4, 20, 0.8);
+
+  animation: fadeIn 1
+
+  /* transform: scaleY(0.01) scaleX(0);
+  animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; */
 }
 
-
-.test{
-    position: fixed;
-   top: 0;
-   bottom: 0;
-   right: 0;
-   left: 0;
-   transform:scale(0);
-   background: rgba(0, 0, 0, 0.5);
-   z-index: 5;
-    transform:scale(1);
-    animation:unfoldOut 1s .3s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
-
+.test {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  transform: scale(0);
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+  transform: scale(1);
+  animation: unfoldOut 1s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 
-.signup-botton{
-    align-self: center;
-    padding: 5px 10px 25px 10px;
-    font-size: 20px;
-    cursor: pointer;
-    background: black;
-    color: white;
-    font-family: Roboto, Sans-Serif;
-    border-radius: 8px;
-    /* opacity: 0.7;
+.signup-botton {
+  align-self: center;
+  padding: 5px 10px 25px 10px;
+  font-size: 20px;
+  cursor: pointer;
+  background: black;
+  color: white;
+  font-family: Roboto, Sans-Serif;
+  border-radius: 8px;
+  /* opacity: 0.7;
     transition: 0.3s; */
-    background-image: linear-gradient(-90deg,rgb(8, 7, 7), red);
-    margin-top: 30px;
+  background-image: linear-gradient(-90deg, rgb(8, 7, 7), red);
+  margin-top: 30px;
 }
 
-  
-.signup-form{
-    display:flex;
-    flex-direction: column;
-    width: 460px;
-    height: 300px;
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  width: 460px;
+  height: 300px;
 }
 
+@keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
 
 @keyframes unfoldIn {
   0% {
-    transform:scaleY(.005) scaleX(0);
+    transform: scaleY(0.005) scaleX(0);
   }
   50% {
-    transform:scaleY(.005) scaleX(1);
+    transform: scaleY(0.005) scaleX(1);
   }
   100% {
-    transform:scaleY(1) scaleX(1);
+  100% {
+    transform: scaleY(1) scaleX(1);
   }
-}
-
 @keyframes unfoldOut {
   0% {
-    transform:scaleY(1) scaleX(1);
+    transform: scaleY(1) scaleX(1);
   }
   50% {
-    transform:scaleY(.005) scaleX(1);
+    transform: scaleY(0.005) scaleX(1);
   }
   100% {
-    transform:scaleY(.005) scaleX(0);
+    transform: scaleY(0.005) scaleX(0);
   }
 }
 
+.modal-child {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
+.close-x {
+  top: 10px;
+  cursor: pointer;
+  color: rgb(235, 233, 233);
+  font-size: 30px;
+  font-family: Roboto, Sans-Serif;
+  text-shadow: 1px -1px 0 #080707, -1px 2px 1px #737272, -2px 4px 1px #a39f9f;
+}
 
+.x-test {
+  width: 300px;
+  background-position: center;
+  background-repeat: repeat;
+  background-size: contain;
+}
 
- .modal-child {
-   position: absolute;
-   top: 40%;
-   left: 50%;
-   transform: translate(-50%, -50%);
- }
+.sinup-login-button,
+.login-submit-button {
+  font-family: Roboto, Sans-Serif;
+  cursor: pointer;
+  padding: 10px;
+  background: black;
+  color: white;
+  border-radius: 8px;
+  background-image: linear-gradient(-90deg, rgb(8, 7, 7), red);
+}
 
- .close-x {
-   
-   top: 10px;
-   cursor: pointer;
-   color: rgb(235, 233, 233);
-   font-size: 30px;
-   font-family: Roboto, Sans-Serif;
-    text-shadow: 
-      1px -1px 0 #080707, 
-      -1px 2px 1px #737272, 
-      -2px 4px 1px #a39f9f;
-   
+.errors {
+  color: white;
+  font-weight: 800;
+  width: 400px;
+  height: 5px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+}
 
- }
-
- .x-test{
-     width: 300px;
-    background-position: center;
-    background-repeat: repeat;
-    background-size: contain;
-
- }
-
-
-  .sinup-login-button, .login-submit-button{
-    font-family: Roboto, Sans-Serif;
-    cursor: pointer;
-    padding: 10px;
-    background: black;
-    color: white;
-    border-radius: 8px;
-    background-image: linear-gradient(-90deg, rgb(8,7,7), red);
- }
-
- .errors{
-    color: white;
-    font-weight: 800;
-    width: 400px;
-    height: 5px;
-    margin-bottom: 30px;
-    display: flex;
-    flex-direction: column;
-    padding-left: 10px;
- }
-
- .errors-margin{
-   margin-bottom:10px;
- }
-
+.errors-margin {
+  margin-bottom: 10px;
+}
