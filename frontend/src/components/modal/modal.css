@@ -112,9 +112,19 @@ input[type="button" i], button{
 
 .login-input{
     font-family: Roboto, Sans-Serif;
-    background: rgb(184, 178, 178);
+    background: whitesmoke;
     width: 100%;
     padding: 15px;
+    border: 1px solid 2b2b2b;
+    border-radius: 5px;
+}
+
+.signup-input{
+    font-family: Roboto, Sans-Serif;
+    background: whitesmoke;
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0;
     border: 1px solid 2b2b2b;
     border-radius: 5px;
 }
@@ -296,7 +306,7 @@ input[type="button" i], button{
 	color:#F0F0F0;
 	border-radius:10px;
 	border-bottom:4px solid #941530;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-family: Roboto, Sans-Serif;
 	-webkit-user-select: none;        
 	-moz-user-select: none;
 	-ms-user-select: none;
