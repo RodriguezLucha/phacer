@@ -96,7 +96,8 @@ button {
   padding: 10px;
   background: black;
   color: white;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
   border-radius: 8px;
   /* background-image: linear-gradient(-90deg, rgb(8, 7, 7), red); */
 }
@@ -128,28 +129,12 @@ button {
   padding-bottom: 15px;
 }
 
-.login-all-input-group{
+.login-all-input-group {
   border: 1px solid #2b2b2b;
-  box-shadow:
-        0.5px 0.5px #2b2b2baf,
-        1px 1px #2b2b2b,
-        1.5px 1.5px #2b2b2b,
-        2px 2px #2b2b2b,
-        2.5px 2.5px #2b2b2b,
-        3px 3px #2b2b2b,
-        3.5px 3.5px #2b2b2b,
-        4px 4px #2b2b2b,
-        4.5px 4.5px #2b2b2b,
-        5px 5px #2b2b2b,
-        5.5px 5.5px #2b2b2b,
-        6px 6px #2b2b2b,
-        6.5px 6.5px #2b2b2b,
-        7px 7px #2b2b2b,
-        7.5px 7.5px #2b2b2b,
-        8px 8px #2b2b2b,
-        8.5px 8.5px #2b2b2b,
-        9px 9px #2b2b2b,
-        9.5px 9.5px #2b2b2b;
+  box-shadow: 0.5px 0.5px #2b2b2baf, 1px 1px #2b2b2b, 1.5px 1.5px #2b2b2b, 2px 2px #2b2b2b, 2.5px 2.5px #2b2b2b,
+    3px 3px #2b2b2b, 3.5px 3.5px #2b2b2b, 4px 4px #2b2b2b, 4.5px 4.5px #2b2b2b, 5px 5px #2b2b2b, 5.5px 5.5px #2b2b2b,
+    6px 6px #2b2b2b, 6.5px 6.5px #2b2b2b, 7px 7px #2b2b2b, 7.5px 7.5px #2b2b2b, 8px 8px #2b2b2b, 8.5px 8.5px #2b2b2b,
+    9px 9px #2b2b2b, 9.5px 9.5px #2b2b2b;
   background: rgb(64, 65, 63);
   padding: 30px;
   position: fixed;
@@ -157,7 +142,7 @@ button {
   top: 50%;
   width: 600px;
   max-width: 100%;
-  animation:modalSlide 1.5s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  animation: modalSlide 1.5s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
   transform: translateY(50%);
 }
 
@@ -178,24 +163,23 @@ button {
   background-image: linear-gradient(-90deg, rgb(131, 129, 129), white);
 }
 
-
-.login-input{
-    font-family: Roboto, Sans-Serif;
-    background: whitesmoke;
-    width: 100%;
-    padding: 15px;
-    border: 1px solid 2b2b2b;
-    border-radius: 5px;
+.login-input {
+  font-family: Roboto, Sans-Serif;
+  background: whitesmoke;
+  width: 100%;
+  padding: 15px;
+  border: 1px solid 2b2b2b;
+  border-radius: 5px;
 }
 
-.signup-input{
-    font-family: Roboto, Sans-Serif;
-    background: whitesmoke;
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0;
-    border: 1px solid 2b2b2b;
-    border-radius: 5px;
+.signup-input {
+  font-family: Roboto, Sans-Serif;
+  background: whitesmoke;
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0;
+  border: 1px solid 2b2b2b;
+  border-radius: 5px;
 }
 
 .login-signup-button-title {
@@ -228,24 +212,20 @@ button {
   padding-top: 10px;
 }
 
-
 .modal-background {
-    z-index: 1100;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgb(19, 21, 21, 0.8);
-    opacity: 0.8;
-    animation: fadeIn 1.2s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
-  	
-   
-   /* transform:scaleY(.01) scaleX(0); */
-   /* animation:unfoldIn 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards; */
-   
-}
+  z-index: 1100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(19, 21, 21, 0.8);
+  opacity: 0.8;
+  animation: fadeIn 1.2s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 
+  /* transform:scaleY(.01) scaleX(0); */
+  /* animation:unfoldIn 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards; */
+}
 
 .modal-background {
   position: fixed;
@@ -257,7 +237,7 @@ button {
   opacity: 1;
   background: rgba(19, 4, 20, 0.8);
 
-  animation: fadeIn 1
+  animation: fadeIn 1;
 
   /* transform: scaleY(0.01) scaleX(0);
   animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; */
@@ -314,7 +294,7 @@ button {
   from {
     opacity: 0;
   }
-  to {    
+  to {
     opacity: 1;
   }
 }
@@ -327,9 +307,10 @@ button {
     transform: scaleY(0.005) scaleX(1);
   }
   100% {
-  100% {
     transform: scaleY(1) scaleX(1);
   }
+}
+
 @keyframes unfoldOut {
   0% {
     transform: scaleY(1) scaleX(1);
@@ -365,89 +346,82 @@ button {
   background-size: contain;
 }
 
- .modal-child {
-   padding: 50px;
-   position: absolute;
-   top: 40%;
-   left: 50%;
-   transform: translate(-50%, -50%);
- }
-
- .close-x {
-   
-   top: 10px;
-   cursor: pointer;
-   color: rgb(235, 233, 233);
-   font-size: 30px;
-   font-family: Roboto, Sans-Serif;
-    text-shadow: 
-      1px -1px 0 #080707, 
-      -1px 2px 1px #737272, 
-      -2px 4px 1px #a39f9f;
-   
-
- }
-
- .x-test{
-     width: 300px;
-    background-position: center;
-    background-repeat: repeat;
-    background-size: contain;
-
- }
-
-
-  .sinup-login-button, .login-submit-button{
-	text-align:center;
-	padding: 20px 0px;
-	display:block;
-	width:110px;
-	cursor:pointer;
-	font-size:18px;
-	color:#F0F0F0;
-	border-radius:10px;
-	border-bottom:4px solid #941530;
-	font-family: Roboto, Sans-Serif;
-	-webkit-user-select: none;        
-	-moz-user-select: none;
-	-ms-user-select: none;
-	-o-user-select: none;
-	user-select: none;
-	
-	background: -webkit-linear-gradient(#db4363, #bd2444);
-    background: -o-linear-gradient(#db4363, #bd2444);
-    background: -moz-linear-gradient(#db4363, #bd2444);
-    background: linear-gradient(#db4363, #bd2444);
-	
-	-webkit-transition: background 0.05s linear;  
-    -moz-transition: background 0.05s linear;  
-    -o-transition: background 0.05s linear;  
-    transition: background 0.05s linear;
-	
-	background-size:1px 200px;
-	
-	transition: all .05s linear;
+.modal-child {
+  padding: 50px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.login-submit-button:hover{
-	background-position:100px;
+.close-x {
+  top: 10px;
+  cursor: pointer;
+  color: rgb(235, 233, 233);
+  font-size: 30px;
+  font-family: Roboto, Sans-Serif;
+  text-shadow: 1px -1px 0 #080707, -1px 2px 1px #737272, -2px 4px 1px #a39f9f;
+}
+
+.x-test {
+  width: 300px;
+  background-position: center;
+  background-repeat: repeat;
+  background-size: contain;
+}
+
+.sinup-login-button,
+.login-submit-button {
+  text-align: center;
+  padding: 20px 0px;
+  display: block;
+  width: 110px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #f0f0f0;
+  border-radius: 10px;
+  border-bottom: 4px solid #941530;
+  font-family: Roboto, Sans-Serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+
+  background: -webkit-linear-gradient(#db4363, #bd2444);
+  background: -o-linear-gradient(#db4363, #bd2444);
+  background: -moz-linear-gradient(#db4363, #bd2444);
+  background: linear-gradient(#db4363, #bd2444);
+
+  -webkit-transition: background 0.05s linear;
+  -moz-transition: background 0.05s linear;
+  -o-transition: background 0.05s linear;
+  transition: background 0.05s linear;
+
+  background-size: 1px 200px;
+
+  transition: all 0.05s linear;
+}
+
+.login-submit-button:hover {
+  background-position: 100px;
 }
 
 .login-submit-button:active {
-	border-bottom:1px solid #941530;
-	transform: translateY(3px);
+  border-bottom: 1px solid #941530;
+  transform: translateY(3px);
 }
 
- .errors{
-    color: white;
-    font-weight: 800;
-    width: 400px;
-    height: 5px;
-    margin-bottom: 30px;
-    display: flex;
-    flex-direction: column;
-    padding-left: 10px;
- }
+.errors {
+  color: white;
+  font-weight: 800;
+  width: 400px;
+  height: 5px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+}
 
 .errors {
   color: white;
