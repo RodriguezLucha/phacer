@@ -3,6 +3,7 @@ import jwt_decode from 'jwt-decode';
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
+export const RECEIVE_CLEAR_SESSION_ERRORS = 'CLEAR_SESSION_ERRORS';
 export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
 export const RECEIVE_USER_SIGN_IN = "RECEIVE_USER_SIGN_IN";
 export const RECEIVE_USER_HANDLE = "RECEIVE_USER_HANDLE";
@@ -27,6 +28,10 @@ export const receiveErrors = errors => ({
     type: RECEIVE_SESSION_ERRORS,
     errors
 });
+
+export const receiveClearSessionErrors = () => ({
+    type: RECEIVE_CLEAR_SESSION_ERRORS
+  });
 
 export const logoutUser = () => ({
     type: RECEIVE_USER_LOGOUT
@@ -54,12 +59,10 @@ export const login = user => dispatch => (
         const decoded = jwt_decode(token);
         dispatch(receiveCurrentUser(decoded));
         
-    })
-    .catch(err => {
-        // dispatch(receiveErrors(err.responseJSON));
-        dispatch(receiveErrors(err.response.data));
-    })
-)
+    }, err => (
+        dispatch(receiveErrors(err.response.data))    
+    ))
+);
 
 export const logout = () => dispatch => {
     localStorage.removeItem('jwtToken')

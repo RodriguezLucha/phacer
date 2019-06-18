@@ -12,14 +12,12 @@ class Room extends React.Component {
     super(props);
 
     this.state = {
-      rooms: [],
       users: props.users
     }
     this.logoutUser = this.logoutUser.bind(this);
   }
 
   componentDidMount() {
-
   }
 
   componentDidUpdate(prevProps) {
@@ -34,12 +32,10 @@ class Room extends React.Component {
   componentWillMount() {
     // debugger
     this.props.fetchTimers();
-    this.props.fetchRooms();
     this.props.getCurrentUserHandle();
   }
 
   componentWillReceiveProps(newState) {
-    this.setState({ rooms: newState.rooms });
     this.setState({ users: newState.users });
   }
 

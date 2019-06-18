@@ -2,6 +2,21 @@ import React from 'react';
 import './main_page.scss'
 
 class MainPage extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      buttonsDisabled : true
+    };
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({buttonsDisabled: false});
+    }, 4000);
+  }
+
   render() {
     return (
       <>
@@ -26,8 +41,8 @@ class MainPage extends React.Component {
               <h1 className="logo">PHACER</h1> <br></br>
               <h1 className="logo"> </h1>
             </div>
-          <button onClick={() => this.props.openModal('login')} id="login-splash-button">LOGIN</button>
-          <button onClick={() => this.props.openModal('signup')} id="join-splash-button">JOIN</button>
+          <button disabled={this.state.buttonsDisabled} onClick={() => this.props.openModal('login')} id="login-splash-button">LOGIN</button>
+          <button disabled={this.state.buttonsDisabled} onClick={() => this.props.openModal('signup')} id="join-splash-button">JOIN</button>
           </div>
       </>
     );

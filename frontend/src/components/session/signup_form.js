@@ -17,9 +17,12 @@ class SignupForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    
-
     this.setState({errors: nextProps.errors})
+  }
+
+  componentWillUnmount() {
+    console.log("Clear session errors in unmount");
+    this.props.clearSessionErrors();
   }
 
   update(field) {
@@ -56,8 +59,8 @@ class SignupForm extends React.Component {
     return (
       <div className="signup-form-container">
         <form onSubmit={this.handleSubmit}>
-          <div onClick={this.props.closeModal} className="close-x">X</div>
-            <div className="signup-form">
+          {/* <div onClick={this.props.closeModal} className="close-x">X</div> */}
+          <div className="login-all-input-group">
               <br/>
                 <input type="text"
                   value={this.state.email}
@@ -90,15 +93,12 @@ class SignupForm extends React.Component {
               <div className="errors">
                 {this.renderErrors()}
               </div>
-              <br/>
-              <input type="submit" value="Sign up" className="signup-botton"/>
-              <br />
 
-            <div className="signup-form-submit-group">
-                <div className="login-signup-button-title">
-                  Already have an account ?
-                </div>
-                <div >
+            <div className="loing-form-submit-group">
+              <div >
+                <input type="submit" value="Sign up" className="login-submit-button"/>
+              </div>
+                <div>
 
                   {this.props.loginForm}
                 </div>

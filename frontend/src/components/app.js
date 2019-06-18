@@ -8,12 +8,12 @@ import TimerContainer from '../../src/components/Timer/timer_container';
 
 const App = () => (
   <div>
-    <Modal />
     <Switch>
       <AuthRoute exact path="/" component={MainPageContainer} />
       <ProtectedRoute exact path="/single_player" component={TimerContainer} />
       <ProtectedRoute exact path="/rooms" component={RoomsContainer} />
     </Switch>
+    <Modal />
   </div>
 );
 
