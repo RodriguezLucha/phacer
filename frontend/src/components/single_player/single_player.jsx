@@ -12,11 +12,13 @@ class Speedo{
 constructor() {
   let dev = false;
   var c = document.getElementById("canvas");
-  c.width = 500;
-  c.height = 500;
+  // c.width = 500;
+  c.width = 250;
+  // c.height = 500;
+  c.height = 250;
   this.ctx = c.getContext("2d");
   let ctx = this.ctx;
-  ctx.scale(1,1);
+  ctx.scale(0.5,0.5);
   this.speedGradient = ctx.createLinearGradient(0, 500, 0, 0);
   this.speedGradient.addColorStop(0, '#00b8fe');
   this.speedGradient.addColorStop(1, '#41dcf4');
@@ -117,12 +119,13 @@ drawMiniNeedle(rotation, width, speed) {
     ctx.arc(250, 250, 240, 0, 2 * Math.PI);
     ctx.stroke();
 
+    //MPH text???
     ctx.font = "70px MuseoSans_900-webfont";
     ctx.textAlign = "center";
-    ctx.fillText(speed, 250, 220);
+    ctx.fillText(speed, 250, 275);
 
     ctx.font = "15px MuseoSans_900-webfont";
-    ctx.fillText("mph", 250, 235);
+    ctx.fillText("mph", 250, 300);
 
     if (gear == 0 && speed > 0) {
         ctx.fillStyle = "#999";
@@ -228,9 +231,11 @@ export default class SinglePlayer extends Component {
     };
 
     let that = this;
-    // let gameWidth = window.width;
-    // let gameHeight = window.height;
-    this.game = new Phaser.Game(800,700, Phaser.CANVAS, 'phaser-container', {
+    let gameWidth = window.innerWidth;
+    let gameHeight = window.innerHeight;
+    gameHeight = gameHeight*0.75;
+    if(gameHeight > 705) gameHeight = 705;
+    this.game = new Phaser.Game((gameWidth*0.5),(gameHeight), Phaser.CANVAS, 'phaser-container', {
       preload: this.preload,
       create: this.create,
       update: this.update,
@@ -340,9 +345,9 @@ export default class SinglePlayer extends Component {
 
     if (cursors.up.isDown) { 
       car.body.thrust(1000); 
-      if(this.rpms <= 0.80){
-        this.rpms += 0.01;
-      }
+       if(this.rpms <= 0.99){
+         this.rpms += 0.01;
+       }
     }
     else {
       if(car.body.velocity.x > 0 || car.body.velocity.y > 0){

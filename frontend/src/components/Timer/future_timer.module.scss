@@ -1,0 +1,30 @@
+
+body {
+  background: black;
+}
+#perspective {
+  background: url(https://lh4.googleusercontent.com/-T4hXQX5Q9BY/Uf71t8j6WAI/AAAAAAAAAA4/bxI5g42gN0I/s800/Digital%2520Clock.jpg) no-repeat;
+  height: 674px;
+  -webkit-perspective-origin: 450px -50px;
+  -webkit-perspective: 700px;
+  perspective-origin: 450px -50px;
+  perspective: 700px;
+}
+#clock {
+  display: inline-block;
+  -webkit-transform: rotateY(24deg) rotateX(-6deg) translate3d(180px, 310px, -20px);
+  transform: rotateY(24deg) rotateX(-6deg) translate3d(180px, 310px, -20px);
+}
+.digit {
+  display: inline-block;
+  margin: 0 11px 0 16px;
+}
+.cell {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+.active {
+  background-color: deepskyblue;
+  box-shadow: 0 0 15px dodgerblue;
+}

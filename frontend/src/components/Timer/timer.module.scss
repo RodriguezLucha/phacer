@@ -1,3 +1,8 @@
+html {
+  max-height: 100vh;
+  max-width: 100vw;
+}
+
 .container {
   display: grid;
   min-height: 100vh;
@@ -6,7 +11,7 @@
     "timer "
     "gameout  "
     "bottom";
-  grid-template-rows: 1fr 700px 1fr;
+  grid-template-rows: 12.5vh 75vh 12.5vh;
 
   background: url("https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
     no-repeat center center fixed;
@@ -17,6 +22,7 @@
 }
 
 .gameout {
+  max-height: 700px;
   grid-area: gameout;
 }
 
@@ -28,14 +34,14 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  z-index: 100;
   color: white;
-  font-size: 60px;
+  font-size: 30px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
     "Helvetica Neue", sans-serif;
 }
+
 button {
-  z-index: 25;
+  z-index: 2;
 }
 
 #title {

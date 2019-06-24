@@ -1,5 +1,6 @@
 import React from 'react';
 import prettyMs from 'pretty-ms';
+import WatchContainer from '../watch/watch_container';
 import SinglePlayerContainer from '../single_player/single_player_container';
 import styles from './timer.module.scss';
 
@@ -64,13 +65,13 @@ class Timer extends React.Component {
     }
       
     render() {
+
       return (
         <>
         <div className={styles.container}>
-          <h3 className={styles.timer}>
-            <i className="fas fa-stopwatch"></i>
-            {prettyMs(this.state.time)}
-          </h3>
+          <div className={styles.timer}>
+            <WatchContainer/>
+          </div>
 
           <div className={styles.gameout}>
             <SinglePlayerContainer stopTimer={this.stopTimer} startTimer={this.startTimer} end={this.state.end} recordTimer={this.props.recordTimer} fetchTimers ={this.props.fetchTimers}/>
