@@ -81,7 +81,7 @@ let dev = false;
             return radian >= -0.46153862656807704 ? radian : -0.46153862656807704;
         }
 
-        export function drawSpeedo(speed, gear, rpm, topSpeed) {
+        function drawSpeedo(speed, gear, rpm, topSpeed) {
             if (speed == undefined) {
                 return false;
             } else {

@@ -1,0 +1,37 @@
+body {
+  background: black;
+}
+#perspective {
+  transform: scale(0.25);
+  height: 110vh;
+  -webkit-perspective-origin: 450px -50px;
+  -webkit-perspective: 700px;
+  perspective-origin: 450px -50px;
+  perspective: 700px;
+}
+#clock {
+  max-height: 10vh;
+  display: inline-block;
+  -webkit-transform: rotateY(0deg) rotateX(-6deg) translate3d(180px, 310px, -20px);
+  transform: rotateY(0deg) rotateX(-6deg) translate3d(180px, 310px, -20px);
+}
+.digit {
+  display: inline-block;
+  margin: 0 11px 0 16px;
+}
+.cell {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+.active {
+  background-color: rgb(64, 241, 20);
+  box-shadow: 0 0 20px rgb(0, 255, 0);
+}
+
+.digital-background {
+  border-radius: 5%;
+  border: 5px solid gray;
+  padding: 10px;
+  background: black;
+}

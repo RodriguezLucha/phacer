@@ -8,7 +8,9 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "jquery": "^3.4.1",
     "jwt-decode": "^2.2.0",
+    "moment": "^2.24.0",
     "react": "^16.6.3",
     "react-d3-speedometer": "^0.5.7",
     "react-dom": "^16.6.3",

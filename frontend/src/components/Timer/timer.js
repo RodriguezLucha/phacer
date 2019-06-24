@@ -1,6 +1,6 @@
 import React from 'react';
 import prettyMs from 'pretty-ms';
-import WatchContainer from '../watch/watch_container';
+import Watch from '../watch/watch';
 import SinglePlayerContainer from '../single_player/single_player_container';
 import styles from './timer.module.scss';
 
@@ -70,7 +70,7 @@ class Timer extends React.Component {
         <>
         <div className={styles.container}>
           <div className={styles.timer}>
-            <WatchContainer/>
+            <Watch time={this.state.time}/>
           </div>
 
           <div className={styles.gameout}>

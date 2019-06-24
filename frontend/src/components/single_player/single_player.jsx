@@ -5,12 +5,10 @@ import styles from './single_player.module.scss';
 /*
 * TESLA HUD BY Tameem Imamdad timamdad@hawk.iit.edu
 */
-const drawSpeedo = null;
 
 class Speedo{
 
 constructor() {
-  let dev = false;
   var c = document.getElementById("canvas");
   // c.width = 500;
   c.width = 250;
@@ -89,7 +87,7 @@ drawMiniNeedle(rotation, width, speed) {
 }
 
    drawSpeedo(speed, gear, rpm, topSpeed) {
-    if (speed == undefined) {
+    if (speed === undefined) {
         return false;
     } else {
         speed = Math.floor(speed);
@@ -127,7 +125,7 @@ drawMiniNeedle(rotation, width, speed) {
     ctx.font = "15px MuseoSans_900-webfont";
     ctx.fillText("mph", 250, 300);
 
-    if (gear == 0 && speed > 0) {
+    if (gear === 0 && speed > 0) {
         ctx.fillStyle = "#999";
         ctx.font = "70px MuseoSans_900-webfont";
         ctx.fillText('R', 250, 460);
@@ -135,7 +133,7 @@ drawMiniNeedle(rotation, width, speed) {
         ctx.fillStyle = "#333";
         ctx.font = "50px MuseoSans_900-webfont";
         ctx.fillText('N', 290, 460);
-    } else if (gear == 0 && speed == 0) {
+    } else if (gear === 0 && speed === 0) {
         ctx.fillStyle = "#999";
         ctx.font = "70px MuseoSans_900-webfont";
         ctx.fillText('N', 250, 460);
@@ -174,10 +172,10 @@ drawMiniNeedle(rotation, width, speed) {
     ctx.fillStyle = "#FFF";
     for (var i = 10; i <= Math.ceil(topSpeed / 20) * 20; i += 10) {
         console.log();
-        this.drawMiniNeedle(this.calculateSpeedAngle(i / topSpeed, 83.07888, 34.3775) * Math.PI, i % 20 == 0 ? 3 : 1, i%20 == 0 ? i : '');
+        this.drawMiniNeedle(this.calculateSpeedAngle(i / topSpeed, 83.07888, 34.3775) * Math.PI, i % 20 === 0 ? 3 : 1, i%20 === 0 ? i : '');
         
         if(i<=100) { 
-            this.drawMiniNeedle(this.calculateSpeedAngle(i / 47, 0, 22.9183) * Math.PI, i % 20 == 0 ? 3 : 1, i % 20 ==
+            this.drawMiniNeedle(this.calculateSpeedAngle(i / 47, 0, 22.9183) * Math.PI, i % 20 === 0 ? 3 : 1, i % 20 ===
             0 ?
             i / 10 : '');
         }
