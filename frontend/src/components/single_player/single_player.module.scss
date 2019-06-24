@@ -1,0 +1,26 @@
+.container {
+  display: grid;
+  grid-template-areas: "left gameinner right";
+  grid-template-columns: 25vw 50vw 25vw;
+
+  background: url("https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.speedometer {
+  grid-area: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gameinner {
+  grid-area: gameinner;
+}
+
+.right {
+  grid-area: right;
+}

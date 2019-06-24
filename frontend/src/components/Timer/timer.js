@@ -1,7 +1,9 @@
 import React from 'react';
 import prettyMs from 'pretty-ms';
+import Watch from '../watch/watch';
 import SinglePlayerContainer from '../single_player/single_player_container';
-import './timer.scss';
+import styles from './timer.module.scss';
+
 
 class Timer extends React.Component {
     constructor(props){
@@ -14,7 +16,8 @@ class Timer extends React.Component {
           end: 0,
           intTime: 0,
           isOn: false,
-          handle: this.props.users.handle
+          handle: this.props.users.handle,
+          speed: 0
         }
 
         this.startTimer = this.startTimer.bind(this)
@@ -62,13 +65,19 @@ class Timer extends React.Component {
     }
       
     render() {
+
       return (
         <>
-        <div className="total">
-          <h3 className='game-timer'><i className="fas fa-stopwatch"></i>
-            {prettyMs(this.state.time)}
-          </h3>
-          <SinglePlayerContainer stopTimer={this.stopTimer} startTimer={this.startTimer} end={this.state.end} recordTimer={this.props.recordTimer} fetchTimers ={this.props.fetchTimers}/>
+        <div className={styles.container}>
+          <div className={styles.timer}>
+            <Watch time={this.state.time}/>
+          </div>
+
+          <div className={styles.gameout}>
+            <SinglePlayerContainer stopTimer={this.stopTimer} startTimer={this.startTimer} end={this.state.end} recordTimer={this.props.recordTimer} fetchTimers ={this.props.fetchTimers}/>
+          </div>
+
+          <div className={styles.bottom}></div>
         </div>
         </>
       );
