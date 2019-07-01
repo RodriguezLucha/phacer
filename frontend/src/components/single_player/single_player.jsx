@@ -2,17 +2,11 @@ import React, { Component } from 'react';
 import Phaser from 'phaser-ce';
 import styles from './single_player.module.scss';
 
-/*
-* TESLA HUD BY Tameem Imamdad timamdad@hawk.iit.edu
-*/
-
 class Speedo{
 
 constructor() {
   var c = document.getElementById("canvas");
-  // c.width = 500;
   c.width = 250;
-  // c.height = 500;
   c.height = 250;
   this.ctx = c.getContext("2d");
   let ctx = this.ctx;
@@ -218,7 +212,7 @@ export default class SinglePlayer extends Component {
         super(props);
 
         this.state = {
-          speed: 0
+          sound: true
         }
   }
 
@@ -229,6 +223,7 @@ export default class SinglePlayer extends Component {
     };
 
     let that = this;
+    
     let gameWidth = window.innerWidth;
     let gameHeight = window.innerHeight;
     gameHeight = gameHeight*0.75;
@@ -244,9 +239,7 @@ export default class SinglePlayer extends Component {
     this.stopCalled = false;
     this.speedo = new Speedo();
     this.rpms = 0;
-
-    
-    
+    this.sound = true;
   }
   
   componentWillUnmount(){
@@ -254,6 +247,7 @@ export default class SinglePlayer extends Component {
   }
 
   preload() {
+    this.dis = this;
     this.game.load.image('car', 'game/car.png');
     this.game.load.image('road', 'game/road.png');
     this.game.load.tilemap('map', 'game/collision_test.json', null, Phaser.Tilemap.TILED_JSON);
@@ -267,11 +261,12 @@ export default class SinglePlayer extends Component {
 
   create() {
     this.rpms = 0.01;
-    //this.that.speedo.drawSpeedo(0,4,0,160);
     this.game.physics.startSystem(Phaser.Physics.P2JS);
     this.game.stage.disableVisibilityChange = true;
 
+    
     this.synth1 = this.game.add.audio('synth1');
+    
 
     this.map = this.game.add.tilemap('map');
 
@@ -311,7 +306,6 @@ export default class SinglePlayer extends Component {
         this.stopCalled = true;
         this.that.props.stopTimer();
         this.that.props.history.push('/rooms');
-        // window.location.reload(); // can be used to reset request history in devtools
       }
     }, this);
     this.game.physics.p2.setImpactEvents(true);
@@ -361,7 +355,6 @@ export default class SinglePlayer extends Component {
     let px = car.body.velocity.x;
     let py = car.body.velocity.y;
 
-    // speed = Math.sqrt(Math.pow((car.body.velocity.x),2) + Math.pow((car.body.velocity.y),2)))
     this.speedometer = Math.sqrt(Math.pow((car.body.velocity.x),2) + Math.pow((car.body.velocity.y),2));
     this.that.speedo.drawSpeedo(Math.floor((this.speedometer)/8),4,this.rpms,160);
     px *= -1;
@@ -373,10 +366,27 @@ export default class SinglePlayer extends Component {
     this.emitter.emitX = car.x;
     this.emitter.emitY = car.y;
 
+    if(this.that.state.sound){
+      this.synth1.resume();
+    } else {
+      this.synth1.pause();
+    }
+
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return false;
+  toggleSound(gameMusic){
+    this.setState({sound: !this.state.sound});
+  }
+
+  soundOn() {
+    return <button type="submit" value="" className="mute-button" onClick={()=> this.toggleSound()}>
+      <i className='fas fa-volume-up'></i>
+    </button>;
+  }
+  soundOff() {
+    return <button type="submit" value="" className="mute-button" onClick={() => this.toggleSound()}>
+      <i className="fas fa-volume-mute"></i>
+    </button>;
   }
 
 
@@ -387,11 +397,12 @@ export default class SinglePlayer extends Component {
         <div className={styles.speedometer}>
             <canvas id="canvas">
             </canvas>
-
         </div>
         <div className={styles.gameinner} id="phaser-container">
         </div>
-        <div className={styles.right}></div>
+          <div className={styles.right}>
+            {this.state.sound ? this.soundOff() : this.soundOn()}
+          </div>
       </div>
     )
   }
