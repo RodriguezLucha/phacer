@@ -154,7 +154,7 @@ export default class SinglePlayer extends Component {
     let py = car.body.velocity.y;
 
     this.speedometer = Math.sqrt(Math.pow((car.body.velocity.x),2) + Math.pow((car.body.velocity.y),2));
-    this.that.speedo.drawSpeedo(Math.floor((this.speedometer)/8),4,this.rpms,160);
+    this.that.speedo.drawSpeedo(Math.floor((this.speedometer)/8),1,this.rpms,160);
     px *= -1;
     py *= -1;
 
@@ -193,8 +193,10 @@ export default class SinglePlayer extends Component {
 
       <div className={styles.container}>
         <div className={styles.speedometer}>
-            <canvas id="canvas">
+          <div className={styles.canvasContainer}>
+            <canvas className={styles.canvas} id="canvas">
             </canvas>
+          </div>
         </div>
         <div className={styles.gameinner} id="phaser-container">
         </div>

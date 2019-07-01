@@ -32,3 +32,19 @@ login-submit-button:active {
   justify-content: center;
   align-items: center;
 }
+
+$convasContainerSize: 350px;
+
+.canvasContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $convasContainerSize;
+  height: $convasContainerSize;
+  border-radius: 50%;
+}
+
+.canvas {
+  
+  border-radius: 50%;
+}
