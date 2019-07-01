@@ -30,7 +30,7 @@ class Watch extends Component {
       self.prevValue = -1;
       
       self.set = function(d) {
-        if (self.prevValue == d) {
+        if (self.prevValue === d) {
           return;
         }
         self.prevValue = d;

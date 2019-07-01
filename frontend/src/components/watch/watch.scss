@@ -6,14 +6,13 @@ body {
   height: 110vh;
   -webkit-perspective-origin: 450px -50px;
   -webkit-perspective: 700px;
-  perspective-origin: 450px -50px;
-  perspective: 700px;
+  perspective-origin: 0px 0px;
 }
 #clock {
   max-height: 10vh;
   display: inline-block;
   -webkit-transform: rotateY(0deg) rotateX(-6deg) translate3d(180px, 310px, -20px);
-  transform: rotateY(0deg) rotateX(-6deg) translate3d(180px, 310px, -20px);
+  transform: rotateY(0deg) rotateX(0deg) translate3d(0px, 310px, -20px);
 }
 .digit {
   display: inline-block;
