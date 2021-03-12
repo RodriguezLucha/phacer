@@ -1,76 +1,94 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
+import React from 'react'
+import { withRouter } from 'react-router-dom'
 import './rooms.scss'
-import '../nav/navbar.scss';
+import '../nav/navbar.scss'
 import Chat from '../chat/chat'
-import TimerItems from '../Timer/timer_items';
+import TimerItems from '../Timer/timer_items'
 import { Link } from 'react-router-dom'
 
-
 class Room extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
 
     this.state = {
       users: props.users
     }
-    this.logoutUser = this.logoutUser.bind(this);
+    this.logoutUser = this.logoutUser.bind(this)
   }
 
-  componentDidMount() {
-  }
+  componentDidMount () {}
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate (prevProps) {
     if (prevProps.timers.length !== this.props.timers.length) {
-      this.props.fetchTimers();
+      this.props.fetchTimers()
     }
     if (!prevProps.users.handle) {
-      this.props.getCurrentUserHandle();
+      this.props.getCurrentUserHandle()
     }
   }
 
-  componentWillMount() {
+  componentWillMount () {
     // debugger
-    this.props.fetchTimers();
-    this.props.getCurrentUserHandle();
+    this.props.fetchTimers()
+    this.props.getCurrentUserHandle()
   }
 
-  componentWillReceiveProps(newState) {
-    this.setState({ users: newState.users });
+  componentWillReceiveProps (newState) {
+    this.setState({ users: newState.users })
   }
 
-  logoutUser(e) {
-    e.preventDefault();
-    this.props.logout();
-    this.props.history.push('/');
+  logoutUser (e) {
+    e.preventDefault()
+    this.props.logout()
+    this.props.history.push('/')
   }
 
-  render() {
-    let timerItems = this.props.timers.sort((a, b) => {
-      const l = a.intTime;
-      const r = b.intTime;
-      return l > r ? 1 : l < r ? -1 : 0;
-    }).slice(0, 10).filter(e => e).map((timer, idx) => {
-      return (
-        <tr key={timer._id}>
-          <td id="td-r">
-            {idx + 1}
-          </td>
-          <TimerItems timer={timer} key={timer._id} />
-        </tr>
-      )
-    })
+  render () {
+    let timerItems = this.props.timers
+      .sort((a, b) => {
+        const l = a.intTime
+        const r = b.intTime
+        return l > r ? 1 : l < r ? -1 : 0
+      })
+      .slice(0, 5)
+      .filter(e => e)
+      .map((timer, idx) => {
+        return (
+          <tr key={timer._id}>
+            <td id='td-r'>{idx + 1}</td>
+            <TimerItems timer={timer} key={timer._id} />
+          </tr>
+        )
+      })
+    let timerItems2 = this.props.timers
+      .sort((a, b) => {
+        console.log(a)
+        const l = a.date
+        const r = b.date
+        return l > r ? -1 : l < r ? 1 : 0
+      })
+      .slice(0, 5)
+      .filter(e => e)
+      .map((timer, idx) => {
+        return (
+          <tr key={timer._id}>
+            <td id='td-r'>{idx + 1}</td>
+            <TimerItems timer={timer} key={timer._id} />
+          </tr>
+        )
+      })
 
-
-      return (
-        <div className="room-index-page">
-          <div>
-            < h1 id = "nav-title">Phacer</h1>
-          </div>
-          <div className="room-index-page-2">
+    return (
+      <div className='room-index-page'>
+        <div>
+          <h1 id='nav-title'>Phacer</h1>
+        </div>
+        <div className='room-index-page-2'>
+          {/* start */}
+          <div className='top-recent'>
             <div className='room-index-table'>
-              <div className="tbl-header">
-                <table cellPadding="0" cellSpacing="0" border="0">
+              <div className='tbl-header'>
+                <table cellPadding='0' cellSpacing='0' border='0'>
                   <thead>
                     <tr>
                       <th id='th-r'>RANK</th>
@@ -80,20 +98,44 @@ class Room extends React.Component {
                   </thead>
                 </table>
               </div>
-              <div className="tbl-content">
-                <table cellPadding="0" cellSpacing="0" border="0">
-                  <tbody>
-                    {timerItems}
-                  </tbody>
+              <div className='tbl-content'>
+                <table cellPadding='0' cellSpacing='0' border='0'>
+                  <tbody>{timerItems}</tbody>
                 </table>
               </div>
-            </div >
-            <div className="start-wrapper">
-              <div>
-                <Link className = "start-button" to={'/single_player'}><span>Play</span></Link>
+            </div>
+            <div></div>
+            <div className='room-index-table'>
+              <div className='tbl-header'>
+                <table cellPadding='0' cellSpacing='0' border='0'>
+                  <thead>
+                    <tr>
+                      <th id='th-r'>RECENT</th>
+                      <th id='th-r'>USERNAME</th>
+                      <th id='th-r'>TIME</th>
+                    </tr>
+                  </thead>
+                </table>
               </div>
+              <div className='tbl-content'>
+                <table cellPadding='0' cellSpacing='0' border='0'>
+                  <tbody>{timerItems2}</tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          {/* start */}
+          <div className='start-wrapper'>
             <div>
-              <button className="log-out-btn" onClick={this.logoutUser}><span>Logout</span></button>
+              <Link className='start-button' to={'/single_player'}>
+                <span>Play</span>
+              </Link>
+            </div>
+            <div>
+              <button className='log-out-btn' onClick={this.logoutUser}>
+                <span>Logout</span>
+              </button>
             </div>
             {/* <div className="instructions">
               <h3 className="instruct-text"> HOW TO PLAY</h3> <br></br>
@@ -108,9 +150,8 @@ class Room extends React.Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
-  
 }
 
-export default withRouter(Room);
+export default withRouter(Room)

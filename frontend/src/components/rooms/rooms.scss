@@ -25,7 +25,7 @@ table{
   font-family: 'Montserrat', sans-serif;  
   background: rgba(53, 52, 52, 0.425);
   max-width: 25vw;
-  min-height: 50vh;
+  // min-height: 25vh;
   overflow-x:auto;
   margin-top: 0px;
   border: 1px solid rgba(53, 52, 52, 0.425);
@@ -99,6 +99,19 @@ section{
    justify-content: space-around;
 }
 
+.top-recent {
+  // max-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 50vh;
+  justify-content:space-between;
+}
+.room-index-table {
+  // max-height: 40vh;
+  // display: flex;
+  //  flex-direction: col;
+   justify-content: space-around;
+}
 
 
 /* for custom scrollbar for webkit browser*/
